@@ -1,4 +1,4 @@
-tu se prije neka slikica
+![opsi](https://gitlab.com/neuberg/opsi/-/blob/master/frontend/opsi/img/opsidark.png)
 
 # Opis projekta
 
