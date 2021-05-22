@@ -10,7 +10,7 @@ Projekt prikazuje delovne migracije v sloveniji glede na statistične regije
 
 # Tehnologije
 
-- front-end:
+- front-end: node v12.19.0, npm 6.14.8
 - back-end:
 - podatkovna baza:
 
