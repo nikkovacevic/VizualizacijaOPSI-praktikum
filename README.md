@@ -9,6 +9,7 @@ Vizualizacija in iskanje po zbirki "OPSi"
 Projekt prikazuje delovne migracije v sloveniji glede na statistične regije
 
 #Prototip link
+
 https://pr.to/WKDB3O/
 
 # Tehnologije
