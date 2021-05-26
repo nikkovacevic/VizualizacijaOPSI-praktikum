@@ -18,16 +18,16 @@ export default function Deposits() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <Title>Število migracij</Title>
       <Typography component="p" variant="h4">
-        $3,024.00
+        3,024 ljudij
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2019
+      <Typography color="#7B8C83" className={classes.depositContext}>
+        on 25 Maj, 2021
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+          Poglej podrobnosti
         </Link>
       </div>
     </React.Fragment>
