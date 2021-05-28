@@ -6,7 +6,7 @@ import io
 df_aktivnost = pd.read_csv (r'C:\Opsi\data\migracije_regije.csv',encoding='utf-8-sig')
 data1 = pd.DataFrame(data=df_aktivnost)
 
-data1=data1.to_json(orient="index")
+data1=data1.to_json(orient="records")
 parsed=json.loads(data1)
 aa=json.dumps(parsed, indent=4,ensure_ascii=False).encode('utf8')
 bb=aa.decode()
