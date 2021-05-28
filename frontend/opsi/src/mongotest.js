@@ -37,12 +37,25 @@ MongoClient.connect(url, function (err, db){
     }
 
   ];*/
-console.log("ena")
+/*console.log("ena")
   var file = fs.readFile("../../../data/json/migracije_regije.json", "utf8", function(err, data){
     console.log("dva");
     
     dbo.collection("regije").drop();
     dbo.collection("regije").insertOne(JSON.parse(data), function(err, docs){
+      console.log("tri");
+      if(err) throw err;
+      console.log(docs.insertedCount);
+      db.close();
+    });
+  });*/
+
+  console.log("ena")
+  var file = fs.readFile("test.json", "utf8", function(err, data){
+    console.log("dva");
+    
+    dbo.collection("regijetest").drop();
+    dbo.collection("regijetest").insertMany(JSON.parse(data), function(err, docs){
       console.log("tri");
       if(err) throw err;
       console.log(docs.insertedCount);
