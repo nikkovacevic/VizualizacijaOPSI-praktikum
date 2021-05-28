@@ -37,20 +37,34 @@ MongoClient.connect(url, function (err, db){
     }
 
   ];*/
-/*console.log("ena")
+console.log("ena")
   var file = fs.readFile("../../../data/json/migracije_regije.json", "utf8", function(err, data){
     console.log("dva");
     
     dbo.collection("regije").drop();
-    dbo.collection("regije").insertOne(JSON.parse(data), function(err, docs){
+    dbo.collection("regije").insertMany(JSON.parse(data), function(err, docs){
       console.log("tri");
       if(err) throw err;
       console.log(docs.insertedCount);
       db.close();
+      fs.close;
     });
-  });*/
+  });
 
-  console.log("ena")
+  var file2 = fs.readFile("../../../data/json/migracije_obcine.json", "utf8", function(err, data2){
+    console.log("dva");
+    
+    dbo.collection("obcine").drop();
+    dbo.collection("obcine").insertMany(JSON.parse(data2), function(err, docs2){
+      console.log("tri2");
+      //if(err) throw err;
+      console.log(docs2.insertedCount);
+      db.close();
+      
+    });
+  });
+
+  /*console.log("ena")
   var file = fs.readFile("test.json", "utf8", function(err, data){
     console.log("dva");
     
@@ -61,7 +75,7 @@ MongoClient.connect(url, function (err, db){
       console.log(docs.insertedCount);
       db.close();
     });
-  });
+  });*/
   
   /*dbo.collection("tri").insertMany(obcine, function(err, res) {
     if (err) throw err;
