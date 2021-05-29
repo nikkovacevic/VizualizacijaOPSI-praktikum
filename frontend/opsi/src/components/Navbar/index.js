@@ -8,6 +8,9 @@ import {
   NavBtnLink
 } from './NavbarElements';
 import '../css/styles.css'
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import MapOutlinedIcon from '@material-ui/icons/MapOutlined';
+import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 
 const Navbar = () => {
   return (
@@ -18,12 +21,15 @@ const Navbar = () => {
         </NavLink>
         <Bars /> 
         <NavMenu>
+          <InfoOutlinedIcon/>
           <NavLink to='/About' activeStyle>
             O nas
           </NavLink>
+          <MapOutlinedIcon/>
           <NavLink to='/map' activeStyle>
             Zemljevidi
           </NavLink>
+          <MoreHorizOutlinedIcon/>
           <NavLink to='/Dashboard' activeStyle>
             Več
           </NavLink>

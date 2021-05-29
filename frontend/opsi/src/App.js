@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar/index';
 import About from './components/About';
 import MapRegije from './components/Map';
+import Footer from './components/Footer';
 
 //<Dashboard/>
 
@@ -30,7 +31,7 @@ function App() {
       <Route path='/dashboard' component={Dashboard} />
       
       </Switch>
-      
+      <Footer/>
   </Router>
 
 
