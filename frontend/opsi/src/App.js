@@ -4,10 +4,10 @@ import './App.css';
 import './components/Dashboard'
 import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
+import Home from './components/Home';
 import Navbar from './components/Navbar/index';
 import About from './components/About';
 import MapRegije from './components/Map';
@@ -21,7 +21,7 @@ function App() {
       
     <Switch>
 
-      <Route path='/' exact component={About} />
+      <Route path='/' exact component={Home} />
 
       <Route path='/map' component={MapRegije} />
         
