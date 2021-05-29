@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar/index';
 import About from './components/About';
-import Map from './components/Map';
+import MapRegije from './components/Map';
 
 //<Dashboard/>
 
@@ -23,7 +23,7 @@ function App() {
 
       <Route path='/' exact component={About} />
 
-      <Route path='/map' component={Map} />
+      <Route path='/map' component={MapRegije} />
         
       <Route path='/about' component={About} />
 
