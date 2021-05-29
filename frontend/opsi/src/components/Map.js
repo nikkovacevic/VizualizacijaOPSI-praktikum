@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useMemo, useCallback } from 'react';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
-
+import Box from '@material-ui/core/Box';
+import ResponsiveDrawer from './Sidebar'
 
 export default function MapRegije() {
 
@@ -58,7 +59,19 @@ export default function MapRegije() {
     
 
     return (
+      
+           
+      
+
+
+
+       
     <div>
+
+        
+            {/*<ResponsiveDrawer/>*/}
+
+       
 
         <ReactMapGL 
         {...viewport}

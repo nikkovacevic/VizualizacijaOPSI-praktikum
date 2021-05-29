@@ -22,7 +22,7 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #344038;
+    color: #2c8549;
   }
 `;
 
@@ -57,6 +57,7 @@ export const NavMenu = styled.div`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  color: #fff;
   margin-right: 24px;
   /* Third Nav */
   /* justify-content: flex-end;
