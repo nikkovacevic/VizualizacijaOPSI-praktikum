@@ -3,26 +3,33 @@ import React from 'react';
 import './App.css';
 import './components/Dashboard'
 import Dashboard from './components/Dashboard';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+
+
 
 
 import Navbar from './components/Navbar/index';
 import About from './components/About';
+import MapRegije from './components/Map';
 
+//<Dashboard/>
 
 function App() {
   return (
     <Router>
-    <Navbar />
-    <Dashboard/>
-    <Routes>
-      <Route path='/' exact component={About} >
+      <Navbar />
+      
+    <Switch>
+
+      <Route path='/' exact component={About} />
+
+      <Route path='/map' component={MapRegije} />
         
-      </Route>
       <Route path='/about' component={About} />
+
       <Route path='/dashboard' component={Dashboard} />
       
-      </Routes>
+      </Switch>
       
   </Router>
 

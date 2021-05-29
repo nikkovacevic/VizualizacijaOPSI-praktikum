@@ -1,0 +1,32 @@
+[
+{
+        "num": 100.0,
+        "STATISTIČNA REGIJA": "SLOVENIJA",
+        "LETO": 2009,
+        "KAZALNIK": "Indeks delovne migracije"
+    },
+    {
+        "num": 100.0,
+        "STATISTIČNA REGIJA": "SLOVENIJA",
+        "LETO": 2009,
+        "KAZALNIK": "Indeks delovne migracije za moške"
+    },
+    {
+        "num": 100.0,
+        "STATISTIČNA REGIJA": "SLOVENIJA",
+        "LETO": 2009,
+        "KAZALNIK": "Indeks delovne migracije za ženske"
+    },
+     {
+        "num": 15.7,
+        "STATISTIČNA REGIJA": "SLOVENIJA",
+        "LETO": 2009,
+        "KAZALNIK": "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča"
+    },
+    {
+        "num": 17.2,
+        "STATISTIČNA REGIJA": "SLOVENIJA",
+        "LETO": 2009,
+        "KAZALNIK": "Delovni migranti, moški [brez kmetov], ki delajo zunaj regije prebivališča"
+    }
+]
