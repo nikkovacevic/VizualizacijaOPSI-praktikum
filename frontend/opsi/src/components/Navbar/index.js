@@ -21,7 +21,7 @@ const Navbar = () => {
           <NavLink to='/About' activeStyle>
             O nas
           </NavLink>
-          <NavLink to='/' activeStyle>
+          <NavLink to='/map' activeStyle>
             Zemljevidi
           </NavLink>
           <NavLink to='/Dashboard' activeStyle>
