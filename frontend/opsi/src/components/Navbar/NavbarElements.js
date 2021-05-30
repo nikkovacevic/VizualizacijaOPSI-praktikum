@@ -70,6 +70,7 @@ export const NavBtn = styled.nav`
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   background: #7D848C;
+  text-align: right;
   padding: 10px 22px;
   color: #fff;
   outline: none;
@@ -84,4 +85,14 @@ export const NavBtnLink = styled(Link)`
     background: #fff;
     color: #010606;
   }
+`;
+
+export const NavDropdown = styled(Link)`
+  background-color: #5A7362;
+  color: white;
+  padding: 10px 22px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 `;

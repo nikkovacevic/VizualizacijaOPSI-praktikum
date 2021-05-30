@@ -12,6 +12,9 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import MapOutlinedIcon from '@material-ui/icons/MapOutlined';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 
+
+
+
 const Navbar = () => {
   return (
     <>
@@ -19,25 +22,33 @@ const Navbar = () => {
         <NavLink to='/'>
           <img className="photo" src={require('../../img/opsilight.png').default} alt='logo' />
         </NavLink>
-        <Bars /> 
+        <Bars />
         <NavMenu>
-          <InfoOutlinedIcon/>
-          <NavLink to='/About' activeStyle>
-            O nas
-          </NavLink>
-          <MapOutlinedIcon/>
-          <NavLink to='/map' activeStyle>
-            Zemljevidi
-          </NavLink>
-          <MoreHorizOutlinedIcon/>
-          <NavLink to='/Dashboard' activeStyle>
-            Več
-          </NavLink>
           
+          <NavBtnLink to='/About' activeStyle>
+          <InfoOutlinedIcon />
+          
+            O nas
+          </NavBtnLink>
+          
+          <NavBtnLink to='/map' activeStyle>
+          <MapOutlinedIcon />
+          
+            Zemljevidi
+          </NavBtnLink>
+          
+          <NavBtnLink to='/Dashboard' activeStyle>
+          <MoreHorizOutlinedIcon />
+          
+            Več
+          </NavBtnLink>
+
+         
+
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
-        
+
       </Nav>
     </>
   );

@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
 
-    <Container>
+    <Container >
       <Jumbotron>
         <h1>Dobrodošli na spletni strani z evidenco delovnih migracij!</h1>
         <p>

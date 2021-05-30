@@ -64,8 +64,7 @@ export default function MapRegije() {
 
 
 
-        <Container fluid>
-            
+              
 
 
 
@@ -92,6 +91,5 @@ export default function MapRegije() {
                 </ReactMapGL>
             </div>
 
-        </Container>
     );
 }
