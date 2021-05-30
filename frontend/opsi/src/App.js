@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar/index';
 import About from './components/About';
 import MapRegije from './components/Map';
+import MapObcine from './components/MapObcine';
 import Footer from './components/Footer';
 
 //<Dashboard/>
@@ -25,6 +26,8 @@ function App() {
       <Route path='/' exact component={Home} />
 
       <Route path='/map' component={MapRegije} />
+
+      <Route path='/mapobcine' component={MapObcine} />
         
       <Route path='/about' component={About} />
 

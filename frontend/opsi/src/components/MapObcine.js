@@ -2,7 +2,7 @@ import React, {useState, useEffect, useMemo, useCallback } from 'react';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
 
 
-export default function MapRegije() {
+export default function MapObcine() {
 
     const [viewport, setViewport] = useState({
         latitude: 46.1199444,
@@ -16,7 +16,7 @@ export default function MapRegije() {
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/stefanb/gurs-obcine/master/data/SR.geojson'
+            'https://raw.githubusercontent.com/stefanb/gurs-obcine/master/data/OB.geojson'
         )
         .then(resp => resp.json())
         .then(json => setAllData(json));
@@ -76,7 +76,7 @@ export default function MapRegije() {
             </Source>
             {hoverInfo && (
                 <div className="tooltip123123" style={{left: hoverInfo.x, top: hoverInfo.y}}>
-                <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                <div>{hoverInfo.feature.properties.OB_UIME}</div>
                 </div>
             )}
         </ReactMapGL>
