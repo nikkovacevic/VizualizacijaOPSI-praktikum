@@ -12,7 +12,7 @@ export default function MapRegije() {
         longitude: 14.815333333333333,
         width: '100%',
         height: '85vh',
-        zoom: 7
+        zoom: 7.5
     });
 
     const [allData, setAllData] = useState(null);
@@ -34,7 +34,7 @@ export default function MapRegije() {
         type: 'fill',
     };
 
-    const [color, setColor] = useState('#8cc08c')
+    const [color, setColor] = useState('#ffffff')
 
     const [hoverInfo, setHoverInfo] = useState(null);
 
@@ -64,12 +64,8 @@ export default function MapRegije() {
 
 
 
-        <Container>
-            <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-                <Dropdown.Item href="/mapobcine">Karta obcin</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </DropdownButton>
+        <Container fluid>
+            
 
 
 

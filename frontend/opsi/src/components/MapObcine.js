@@ -31,7 +31,7 @@ export default function MapObcine() {
         type: 'fill',
     };
     
-    const [color, setColor] = useState('#8cc08c')
+    const [color, setColor] = useState('#ffffff')
 
     const [hoverInfo, setHoverInfo] = useState(null);
 
