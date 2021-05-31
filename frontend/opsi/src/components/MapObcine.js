@@ -1,5 +1,13 @@
 import React, {useState, useEffect, useMemo, useCallback } from 'react';
+import { Container } from 'react-bootstrap';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
+
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Button from 'react-bootstrap/Button'
+import Nav from 'react-bootstrap/Nav'
+import Row from 'react-bootstrap/Row'
+import './css/styles.css'
 
 
 export default function MapObcine() {
@@ -9,7 +17,7 @@ export default function MapObcine() {
         longitude: 14.815333333333333,
         width: '100%',
         height: '85vh',
-        zoom: 8
+        zoom: 7.5
     });
 
     const [allData, setAllData] = useState(null);
@@ -58,6 +66,22 @@ export default function MapObcine() {
     
 
     return (
+    
+    <Container fluid>
+    
+    
+        <Container >
+        <Jumbotron className="custome-jum" >
+            <div className="text-center">
+                <ButtonGroup aria-label="Btn group" >
+                    <Button variant="secondary" href="/Map">Karta regij</Button>
+                    <Button variant="secondary" href="/MapObcine">Karta občin</Button>
+                    <Button variant="secondary" href="#">?nedodeljen?</Button>
+                </ButtonGroup>
+             </div>
+         </Jumbotron>
+         </Container>  
+    
     <div>
 
         <ReactMapGL 
@@ -81,5 +105,7 @@ export default function MapObcine() {
             )}
         </ReactMapGL>
     </div>
+
+    </Container> 
     );
 }
