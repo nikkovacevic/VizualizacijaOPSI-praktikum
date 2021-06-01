@@ -1,3 +1,0 @@
-100,SLOVENIJA,2009,Indeks delovne migracije
-100,SLOVENIJA,2009,Indeks delovne migracije za moške
-100,SLOVENIJA,2009,Indeks delovne migracije za ženske
