@@ -13,25 +13,26 @@ import About from './components/About';
 import MapRegije from './components/Map';
 import MapObcine from './components/MapObcine';
 import Footer from './components/Footer';
+import NavbarNew from './components/Navbar'
 
 //<Dashboard/>
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <NavbarNew />
       
     <Switch>
 
       <Route path='/' exact component={Home} />
 
-      <Route path='/map' component={MapRegije} />
+      <Route path='/regije' component={MapRegije} />
 
-      <Route path='/mapobcine' component={MapObcine} />
+      <Route path='/obcine' component={MapObcine} />
         
-      <Route path='/about' component={About} />
+      <Route path='/onas' component={About} />
 
-      <Route path='/dashboard' component={Dashboard} />
+      <Route path='/statistika' component={Dashboard} />
       
       </Switch>
       <Footer/>

@@ -9,26 +9,33 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
+import bgimage from '../img/trans5.jpg'
+import './css/styles.css'
 
 
 
 
 
 const Home = () => {
-
+/*style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }}*/
 
   return (
 
     <Container >
-      <Jumbotron>
-        <h1>Dobrodošli na spletni strani z evidenco delovnih migracij!</h1>
-        <p>
-          Tukaj pride nek text o nas
+     <div>
+      <Jumbotron className="graid" >
+        
+        <h2 style={{color: "black"}}>Dobrodošli na spletni strani z evidenco delovnih migracij!</h2>
+        <p style={{color: "black"}}>
+          Stran je namenjena vizualizaciji podatkov o delovnih migracijah med leti 2000 in 2020. 
         </p>
         <p>
-          <Button variant="info" href="/About" >Več o nas</Button>
+           
+          <Button variant="info" href="/oprojektu" >O projektu</Button>
         </p>
+        
       </Jumbotron>
+      </div>
       <div>
         <CardDeck>
           <Card>
@@ -41,7 +48,7 @@ const Home = () => {
       </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button variant="secondary" size="sm" href="/Map">
+              <Button variant="secondary" size="sm" href="/regije">
                 Na karte
     </Button>
             </Card.Footer>
@@ -56,7 +63,7 @@ const Home = () => {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-            <Button variant="secondary" size="sm" href="/Dashboard">
+            <Button variant="secondary" size="sm" href="/statistika">
                 Na statistiko
     </Button>
             </Card.Footer>

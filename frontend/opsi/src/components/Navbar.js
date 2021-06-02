@@ -1,70 +1,46 @@
+
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import './css/styles.css'
 
-export const mainListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
-  </div>
-);
 
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem>
-  </div>
+const NavbarNew = () => {
+  return(
+<Navbar collapseOnSelect expand="lg" className="custome-nav" variant="dark">
+<Navbar.Brand href="/">
+      <img
+       
+        src={require('../img/opsilight.png').default}
+        width="30"
+        height="30"
+        className="d-inline-block align-top photo"
+        alt="React Bootstrap logo"
+      />
+      </Navbar.Brand>
+  <Navbar.Brand href="/">Delovne migracije</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+      
+      <Nav.Link href="/statistika">Statistika</Nav.Link>
+      <NavDropdown title="Zemljevidi" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="/regije">Statistične regije</NavDropdown.Item>
+        <NavDropdown.Item href="/obcine">Občine</NavDropdown.Item>
+        
+        
+      </NavDropdown>
+    </Nav>
+    <Nav>
+    <Nav.Link href="/onas">O nas</Nav.Link>
+    <Nav.Link href="/oprojektu">O projektu</Nav.Link>
+        
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
+
 );
+};
+
+export default NavbarNew;
