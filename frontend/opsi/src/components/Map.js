@@ -16,8 +16,8 @@ export default function MapRegije() {
         latitude: 46.1199444,
         longitude: 14.815333333333333,
         width: '100%',
-        height: '85vh',
-        zoom: 7.5
+        height: '70vh',
+        zoom: 7
     });
 
     const [allData, setAllData] = useState(null);
@@ -66,38 +66,7 @@ export default function MapRegije() {
 
 
     return (
-        <Container fluid >
-           
-           <Container >
-            <Jumbotron className="custome-jum" >
-                <div className="text-center">
-                    <ButtonGroup aria-label="Btn group" >
-                        <Button variant="secondary" href="/Map">Karta regij</Button>
-                        <Button variant="secondary" href="/MapObcine">Karta občin</Button>
-                        <Button variant="secondary" href="#">?nedodeljen?</Button>
-                    </ButtonGroup>
-                 </div>
-             </Jumbotron>
-             </Container>    
-           
-
-         {/*
-        <Jumbotron fluid >  
-            <div>
-               
-            <Nav fill variant="tabs" defaultActiveKey="/map">
-                <Nav.Item>
-                    <Nav.Link href="/map">Karta regij</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1" href="/mapobcine">Karta občin</Nav.Link>
-                </Nav.Item>
-                               
-            </Nav>
-            </div>
-         </Jumbotron>
-         */} 
-
+       
                
             <div>
                 <ReactMapGL
@@ -128,6 +97,6 @@ export default function MapRegije() {
             </Poskus>
             </div>
               
-        </Container>
+    
     );
 }

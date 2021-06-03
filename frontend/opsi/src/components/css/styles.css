@@ -8,3 +8,19 @@
   height: 10%;
 
 }
+.custome-nav{
+background-color: #5A7362;
+
+}
+
+.graid{
+
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(../../img/trans7.jpeg);
+
+}
+
+.div-levo{
+
+  float: left;
+  width: 50%;
+}

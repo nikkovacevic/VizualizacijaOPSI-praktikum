@@ -16,8 +16,8 @@ export default function MapObcine() {
         latitude: 46.1199444,
         longitude: 14.815333333333333,
         width: '100%',
-        height: '85vh',
-        zoom: 7.5
+        height: '70vh',
+        zoom: 7
     });
 
     const [allData, setAllData] = useState(null);
@@ -67,20 +67,7 @@ export default function MapObcine() {
 
     return (
     
-    <Container fluid>
     
-    
-        <Container >
-        <Jumbotron className="custome-jum" >
-            <div className="text-center">
-                <ButtonGroup aria-label="Btn group" >
-                    <Button variant="secondary" href="/Map">Karta regij</Button>
-                    <Button variant="secondary" href="/MapObcine">Karta občin</Button>
-                    <Button variant="secondary" href="#">?nedodeljen?</Button>
-                </ButtonGroup>
-             </div>
-         </Jumbotron>
-         </Container>  
     
     <div>
 
@@ -106,6 +93,5 @@ export default function MapObcine() {
         </ReactMapGL>
     </div>
 
-    </Container> 
     );
 }
