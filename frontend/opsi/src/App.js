@@ -31,7 +31,7 @@ function App() {
         
       <Route path='/onas' component={About} />
 
-      <Route path='/dashboard' component={Dashboard} />
+      <Route path='/statistika' component={Dashboard} />
 
       <Route path='/poskus' component={Poskus} />
       

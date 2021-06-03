@@ -9,6 +9,8 @@ import Row from 'react-bootstrap/Row'
 import './css/styles.css'
 import Poskus from './poskus';
 
+import nasData from './data/regije_zdruzen.json';
+
 
 export default function MapRegije() {
 
@@ -24,7 +26,7 @@ export default function MapRegije() {
 
     useEffect(() => {
         fetch(
-            '/data/regije_zdruzen.geojson'
+            'https://raw.githubusercontent.com/KovacevicNik/OPSI-geojson-storage/main/regije_zdruzen.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));

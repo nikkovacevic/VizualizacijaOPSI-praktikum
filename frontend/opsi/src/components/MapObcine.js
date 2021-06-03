@@ -24,7 +24,7 @@ export default function MapObcine() {
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/stefanb/gurs-obcine/master/data/OB.geojson'
+            'https://raw.githubusercontent.com/KovacevicNik/OPSI-geojson-storage/main/obcinemini.geojson'
         )
         .then(resp => resp.json())
         .then(json => setAllData(json));
