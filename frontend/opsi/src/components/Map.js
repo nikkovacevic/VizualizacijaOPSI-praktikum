@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
-
+import Poskus from './poskus';
 
 
 export default function MapRegije() {
@@ -116,12 +116,17 @@ export default function MapRegije() {
                     </Source>
                     {hoverInfo && (
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                      
                             <div>{hoverInfo.feature.properties.SR_UIME}</div>
                         </div>
                     )}
                 </ReactMapGL>
             </div>
-
+          
+            <div>
+            <Poskus>
+            </Poskus>
+            </div>
               
         </Container>
     );

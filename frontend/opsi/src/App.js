@@ -13,7 +13,7 @@ import About from './components/About';
 import MapRegije from './components/Map';
 import MapObcine from './components/MapObcine';
 import Footer from './components/Footer';
-
+import Poskus from './components/poskus';
 //<Dashboard/>
 
 function App() {
@@ -32,6 +32,8 @@ function App() {
       <Route path='/about' component={About} />
 
       <Route path='/dashboard' component={Dashboard} />
+
+      <Route path='/poskus' component={Poskus} />
       
       </Switch>
       <Footer/>
