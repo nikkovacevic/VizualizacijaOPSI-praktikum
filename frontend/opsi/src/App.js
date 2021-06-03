@@ -8,18 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import Home from './components/Home';
-import Navbar from './components/Navbar/index';
+import NavbarNew from './components/Navbar.js';
 import About from './components/About';
 import MapRegije from './components/Map';
 import MapObcine from './components/MapObcine';
 import Footer from './components/Footer';
-<<<<<<< HEAD
 import Poskus from './components/poskus';
-=======
-import NavbarNew from './components/Navbar'
 
->>>>>>> 9efb98ea84810e6385b26966809b350270f4ba40
-//<Dashboard/>
 
 function App() {
   return (
@@ -36,13 +31,9 @@ function App() {
         
       <Route path='/onas' component={About} />
 
-<<<<<<< HEAD
       <Route path='/dashboard' component={Dashboard} />
 
       <Route path='/poskus' component={Poskus} />
-=======
-      <Route path='/statistika' component={Dashboard} />
->>>>>>> 9efb98ea84810e6385b26966809b350270f4ba40
       
       </Switch>
       <Footer/>

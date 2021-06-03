@@ -26,7 +26,7 @@ function Poskus() {
         <div>
           <h3>{x.properties.OB_UIME}</h3>
           <ul>
-            {x.podatki_obcine.filter(x => x.LETO=='2001').map(x => 
+            {x.podatki_obcine.filter(x => x.LETO==='2001').map(x => 
               <li>LETO:{x.LETO} || NUM:{x.num} || KAZALNIK:{x.KAZALNIK}</li>
             )}
           </ul>

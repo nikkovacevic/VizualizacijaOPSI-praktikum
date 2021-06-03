@@ -67,6 +67,7 @@ export default function MapRegije() {
 
     return (
        
+        <>
                
             <div>
                 <ReactMapGL
@@ -96,6 +97,7 @@ export default function MapRegije() {
             <Poskus>
             </Poskus>
             </div>
+            </>
               
     
     );
