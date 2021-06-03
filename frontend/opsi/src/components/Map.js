@@ -24,7 +24,7 @@ export default function MapRegije() {
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/stefanb/gurs-obcine/master/data/SR.geojson'
+            '/data/regije_zdruzen.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));
