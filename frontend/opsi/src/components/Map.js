@@ -19,7 +19,8 @@ export default function MapRegije() {
         longitude: 14.815333333333333,
         width: '100%',
         height: '70vh',
-        zoom: 7
+        zoom: 6.8,
+        minZoom: 6.8
     });
 
     const [allData, setAllData] = useState(null);
@@ -44,6 +45,30 @@ export default function MapRegije() {
     const [color, setColor] = useState('#ffffff')
 
     const [hoverInfo, setHoverInfo] = useState(null);
+    const [clickInfo, setClickInfo] = useState(null);
+
+    const onClick = useCallback(event => {
+        const {
+            features,
+            srcEvent: { offsetX, offsetY }
+
+        } = event;
+
+        const clickedFeature = features && features[0];
+
+            setClickInfo(
+                clickedFeature
+                ? {
+                    feature: clickedFeature,
+                    x: offsetX,
+                    y: offsetY
+                }
+                : null
+            );
+
+            //console.log(clickInfo);
+
+    }, []);
 
     const onHover = useCallback(event => {
         const {
@@ -81,6 +106,7 @@ export default function MapRegije() {
                     }}
                     interactiveLayerIds={['data']}
                     onHover={onHover}
+                    onClick={onClick}
                 >
 
                     <Source id="sourcelayer" type="geojson" data={data}>
@@ -94,11 +120,12 @@ export default function MapRegije() {
                     )}
                 </ReactMapGL>
             </div>
+
+            {clickInfo && (
+                <div>{clickInfo.feature.properties.SR_UIME}</div>
+            )}
           
-            <div>
-            <Poskus>
-            </Poskus>
-            </div>
+            
             </>
               
     
