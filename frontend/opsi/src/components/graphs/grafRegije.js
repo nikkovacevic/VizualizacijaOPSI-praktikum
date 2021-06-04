@@ -48,7 +48,8 @@ export default function GrafRegije(props) {
     return (
       <React.Fragment>     
         
-        <h2>Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča po regijah leta {props.leto}</h2>
+        <h2>Izbrana regija {props.regija}</h2>
+        <h2>Indeks delovne migracije</h2>
         <div>
        
           <BarChart

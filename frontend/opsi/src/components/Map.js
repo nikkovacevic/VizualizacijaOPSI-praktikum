@@ -123,7 +123,7 @@ export default function MapRegije() {
 
             {clickInfo && (
                 <>
-                <div>{clickInfo.feature.properties.SR_UIME}</div>
+                
                 <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
                 </>
             )}
