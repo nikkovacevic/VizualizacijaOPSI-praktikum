@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
 import Poskus from './poskus';
-
+import GrafRegije from './graphs/grafRegije.js'
 import nasData from './data/regije_zdruzen.json';
 
 
@@ -46,7 +46,7 @@ export default function MapRegije() {
 
     const [hoverInfo, setHoverInfo] = useState(null);
     const [clickInfo, setClickInfo] = useState(null);
-
+  
     const onClick = useCallback(event => {
         const {
             features,
@@ -122,9 +122,12 @@ export default function MapRegije() {
             </div>
 
             {clickInfo && (
+                <>
                 <div>{clickInfo.feature.properties.SR_UIME}</div>
+                <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
+                </>
             )}
-          
+           
             
             </>
               
