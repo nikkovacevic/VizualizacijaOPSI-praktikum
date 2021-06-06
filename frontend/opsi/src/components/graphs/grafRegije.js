@@ -19,7 +19,7 @@ export default function GrafRegije(props) {
     var leto = 2020;
     
     const data5 = require("../data/migracije_regije.json");
-    console.log(data5[0].num);
+    //console.log(data5[0].num);
     const results = new Array();
     //var results = [];
     for ( var key in data5){
@@ -40,7 +40,7 @@ export default function GrafRegije(props) {
     var filtered = results.filter(function (el){
       return el != null;
     })
-    console.log(results);
+    //console.log(results);
     var ime = filtered[1].KAZALNIK;
 
 

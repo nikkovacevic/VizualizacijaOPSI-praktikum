@@ -13,8 +13,8 @@ import nasData from './data/regije_zdruzen.json';
 import Overlay from 'react-bootstrap/Overlay'
 import Popover from 'react-bootstrap/Popover'
 
-import updatePercentiles from  './racun_samoforja.js';
-import {dataLayer} from './barve_samoforja.js';
+import { updatePercentiles } from  './racun_samoforja.js';
+import { dataLayer } from './barve_samoforja.js';
 import ControlPanel from './control-panel';
 
 export default function MapRegije() {
@@ -22,13 +22,13 @@ export default function MapRegije() {
     const [viewport, setViewport] = useState({
         latitude: 46.1199444,
         longitude: 14.815333333333333,
-        width: '100%',
+        width: '50%',
         height: '70vh',
         zoom: 6.8,
         minZoom: 6.8
     });
 
-    const [year, setYear] = useState(2020);
+    const [year, setYear] = useState(2005);
     const [allData, setAllData] = useState(null);
 
     useEffect(() => {
@@ -40,7 +40,8 @@ export default function MapRegije() {
     }, []);
 
     const data = useMemo(() => {
-        return allData;
+        return allData 
+        //&& updatePercentiles(allData, f => f.properties.income.year);
     }, [allData]);
 
     const layerStyle = {
@@ -78,7 +79,7 @@ export default function MapRegije() {
                 : null
         );
 
-        //console.log(clickInfo);
+        console.log(clickInfo);
 
     }, []);
 
@@ -100,6 +101,9 @@ export default function MapRegije() {
                 }
                 : null
         );
+
+        console.log(hoveredFeature);
+
     }, []);
 
    

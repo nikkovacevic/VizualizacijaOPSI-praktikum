@@ -2,6 +2,7 @@ import * as React from 'react';
 
 function ControlPanel(props) {
   const {year} = props;
+  console.log(year);
 
   return (
     <div className="control-panel">
@@ -15,8 +16,8 @@ function ControlPanel(props) {
         <input
           type="range"
           value={year}
-          min={1991}
-          max={2020}
+          min={1995}
+          max={2005}
           step={1}
           onChange={evt => props.onChange(evt.target.value)}
         />
