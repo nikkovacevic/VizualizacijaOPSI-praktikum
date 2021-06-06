@@ -8,9 +8,11 @@ import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
 import Poskus from './poskus';
-
 import nasData from './data/regije_zdruzen.json';
 
+import updatePercentiles from  './racun_samoforja.js';
+import {dataLayer} from './barve_samoforja.js';
+import ControlPanel from './control-panel';
 
 export default function MapRegije() {
 
@@ -23,6 +25,7 @@ export default function MapRegije() {
         minZoom: 6.8
     });
 
+    const [year, setYear] = useState(2020);
     const [allData, setAllData] = useState(null);
 
     useEffect(() => {
@@ -90,13 +93,14 @@ export default function MapRegije() {
         );
     }, []);
 
-
+   
 
     return (
        
         <>
                
             <div>
+            <ControlPanel year={year} onChange={value => setYear(value)} />
                 <ReactMapGL
                     {...viewport}
                     mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
@@ -110,7 +114,7 @@ export default function MapRegije() {
                 >
 
                     <Source id="sourcelayer" type="geojson" data={data}>
-                        <Layer {...layerStyle} paint={{ 'fill-color': color, 'fill-opacity': 0.3, 'fill-outline-color': "#45634d" }} />
+                        <Layer {...dataLayer}  />
                     </Source>
                     {hoverInfo && (
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
@@ -119,6 +123,7 @@ export default function MapRegije() {
                         </div>
                     )}
                 </ReactMapGL>
+                
             </div>
 
             {clickInfo && (
