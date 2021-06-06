@@ -8,7 +8,10 @@ import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
 import Poskus from './poskus';
+import GrafRegije from './graphs/grafRegije.js'
 import nasData from './data/regije_zdruzen.json';
+import Overlay from 'react-bootstrap/Overlay'
+import Popover from 'react-bootstrap/Popover'
 
 import updatePercentiles from  './racun_samoforja.js';
 import {dataLayer} from './barve_samoforja.js';
@@ -46,11 +49,17 @@ export default function MapRegije() {
     };
 
     const [color, setColor] = useState('#ffffff')
-
+    
     const [hoverInfo, setHoverInfo] = useState(null);
     const [clickInfo, setClickInfo] = useState(null);
 
+    /*const [show, setShow] = useState(false);
+    const [target, setTarget] = useState(null);
+    const ref = useRef(null);
+    */
     const onClick = useCallback(event => {
+        //setShow(!show);
+        //setTarget(event.target);
         const {
             features,
             srcEvent: { offsetX, offsetY }
@@ -59,17 +68,17 @@ export default function MapRegije() {
 
         const clickedFeature = features && features[0];
 
-            setClickInfo(
-                clickedFeature
+        setClickInfo(
+            clickedFeature
                 ? {
                     feature: clickedFeature,
                     x: offsetX,
                     y: offsetY
                 }
                 : null
-            );
+        );
 
-            //console.log(clickInfo);
+        //console.log(clickInfo);
 
     }, []);
 
@@ -96,9 +105,28 @@ export default function MapRegije() {
    
 
     return (
-       
+        
         <>
-               
+
+                {/*
+                <div ref={ref}>
+                <Overlay
+                    show={show}
+                    target={target}
+                    placement="bottom"
+                    container={ref.current}
+                    containerPadding={20}
+                >
+
+                    <Popover id="popover-contained">
+                        <Popover.Title as="h3">Popover bottom</Popover.Title>
+                        <Popover.Content>
+                            <strong>Holy guacamole!</strong> Check this info.
+          </Popover.Content>
+                    </Popover>
+                </Overlay>
+            </div> 
+                */}
             <div>
             <ControlPanel year={year} onChange={value => setYear(value)} />
                 <ReactMapGL
@@ -118,7 +146,7 @@ export default function MapRegije() {
                     </Source>
                     {hoverInfo && (
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
-                      
+
                             <div>{hoverInfo.feature.properties.SR_UIME}</div>
                         </div>
                     )}
@@ -127,12 +155,18 @@ export default function MapRegije() {
             </div>
 
             {clickInfo && (
-                <div>{clickInfo.feature.properties.SR_UIME}</div>
+                <>
+                   
+
+                
+
+                    <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
+                </>
             )}
-          
             
-            </>
-              
-    
+
+        </>
+
+
     );
 }

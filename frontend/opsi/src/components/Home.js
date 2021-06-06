@@ -41,45 +41,43 @@ const Home = () => {
           <Card>
             <Card.Img variant="top" src={require('../img/map.svg').default} alt='img1' />
             <Card.Body>
-              <Card.Title>Karte migracij</Card.Title>
+              <Card.Title>Zemljevidi migracij</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
+                Preglejte statistiko delovnih migracij s pomočjo interaktivnega zemljevida. Možnost je izbiranja med karto z statističnimi regijami in karto občin v Sloveniji.
       </Card.Text>
             </Card.Body>
             <Card.Footer>
               <Button variant="secondary" size="sm" href="/regije">
-                Na karte
+                Na stran z zemljevidi
     </Button>
             </Card.Footer>
           </Card>
           <Card>
             <Card.Img variant="top" src={require('../img/stats.png').default} alt='img2' />
             <Card.Body>
-              <Card.Title>Statistika migracij</Card.Title>
+              <Card.Title>Statistika migracij v Sloveniji</Card.Title>
               <Card.Text>
-                This card has supporting text below as a natural lead-in to additional
-        content.{' '}
+                Preglejte statistiko delovnih migracij v Sloveniji. Na strani so prikazani splošni podatki.
               </Card.Text>
             </Card.Body>
             <Card.Footer>
             <Button variant="secondary" size="sm" href="/statistika">
-                Na statistiko
+                Na stran o statistiki
     </Button>
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={require('../img/opsilogo.png').default} alt='img3' className="opsi-photo"/>
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>Odprti podatki Slovenije</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This card has even longer content than the first to
-                show that equal height action.
+                Podatki na naši strani so bili črpani s strani OPSI. Preglejt stran:
       </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+            <Button variant="secondary" size="sm" href="https://podatki.gov.si/" target="_blank">
+                Na spletno mesto OPSI
+            </Button>
             </Card.Footer>
           </Card>
         </CardDeck>

@@ -118,12 +118,12 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className={classes.root}>
+    <div>
       <CssBaseline />
 
     
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
+      <main>
+        <div />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
