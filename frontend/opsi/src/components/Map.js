@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
@@ -9,26 +12,66 @@ import Row from 'react-bootstrap/Row'
 import './css/styles.css'
 import Poskus from './poskus';
 import GrafRegije from './graphs/grafRegije.js'
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import nasData from './data/regije_zdruzen.json';
 import Overlay from 'react-bootstrap/Overlay'
 import Popover from 'react-bootstrap/Popover'
 
-import { updatePercentiles } from  './racun_samoforja.js';
+import { updatePercentiles } from './racun_samoforja.js';
 import { dataLayer } from './barve_samoforja.js';
 import ControlPanel from './control-panel';
 
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+   
+    content: {
+        flexGrow: 1,
+        height: '100vh',
+        overflow: 'auto',
+    },
+    container: {
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
+    },
+    paper: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    },
+    fixedHeight: {
+        height: 240,
+    },
+}));
+
 export default function MapRegije() {
+
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(true);
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
 
     const [viewport, setViewport] = useState({
         latitude: 46.1199444,
         longitude: 14.815333333333333,
-        width: '50%',
+        width: '100%',
         height: '70vh',
         zoom: 6.8,
         minZoom: 6.8
     });
 
-    const [year, setYear] = useState(2005);
+
     const [allData, setAllData] = useState(null);
 
     useEffect(() => {
@@ -40,8 +83,8 @@ export default function MapRegije() {
     }, []);
 
     const data = useMemo(() => {
-        return allData 
-        //&& updatePercentiles(allData, f => f.properties.income.year);
+        return allData
+
     }, [allData]);
 
     const layerStyle = {
@@ -50,17 +93,12 @@ export default function MapRegije() {
     };
 
     const [color, setColor] = useState('#ffffff')
-    
+
     const [hoverInfo, setHoverInfo] = useState(null);
     const [clickInfo, setClickInfo] = useState(null);
 
-    /*const [show, setShow] = useState(false);
-    const [target, setTarget] = useState(null);
-    const ref = useRef(null);
-    */
     const onClick = useCallback(event => {
-        //setShow(!show);
-        //setTarget(event.target);
+
         const {
             features,
             srcEvent: { offsetX, offsetY }
@@ -106,70 +144,67 @@ export default function MapRegije() {
 
     }, []);
 
-   
+
 
     return (
+        <div>
         
-        <>
+  
+      
+        <main>
+          
+     
 
-                {/*
-                <div ref={ref}>
-                <Overlay
-                    show={show}
-                    target={target}
-                    placement="bottom"
-                    container={ref.current}
-                    containerPadding={20}
-                >
+            <Container maxWidth="lg" className={classes.container}>
+                <div>
+                    <Grid container spacing={0} direction="row" justify="flex-start" alignItems="flex-start">
 
-                    <Popover id="popover-contained">
-                        <Popover.Title as="h3">Popover bottom</Popover.Title>
-                        <Popover.Content>
-                            <strong>Holy guacamole!</strong> Check this info.
-          </Popover.Content>
-                    </Popover>
-                </Overlay>
-            </div> 
-                */}
-            <div>
-            <ControlPanel year={year} onChange={value => setYear(value)} />
-                <ReactMapGL
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
-                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
-                    onViewportChange={viewport => {
-                        setViewport(viewport);
-                    }}
-                    interactiveLayerIds={['data']}
-                    onHover={onHover}
-                    onClick={onClick}
-                >
+                        <Grid item xs={12} md={4} lg={7}>
+                            <Paper className={classes.paper}>
+                                <ReactMapGL
+                                    {...viewport}
+                                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                                    onViewportChange={viewport => {
+                                        setViewport(viewport);
+                                    }}
+                                    interactiveLayerIds={['data']}
+                                    onHover={onHover}
+                                    onClick={onClick}
+                                >
 
-                    <Source id="sourcelayer" type="geojson" data={data}>
-                        <Layer {...dataLayer}  />
-                    </Source>
-                    {hoverInfo && (
-                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                                    <Source id="sourcelayer" type="geojson" data={data}>
+                                        <Layer {...layerStyle} paint={{ 'fill-color': color, 'fill-opacity': 0.3, 'fill-outline-color': "#45634d" }} />
+                                    </Source>
+                                    {hoverInfo && (
+                                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
 
-                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
-                        </div>
-                    )}
-                </ReactMapGL>
-                
-            </div>
+                                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                                        </div>
+                                    )}
+                                </ReactMapGL>
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </div>
+                <Grid item xs={12} md={2} lg={4}>
+                            <Paper className={fixedHeightPaper}>                     
+                {clickInfo && (
+                    <>
 
-            {clickInfo && (
-                <>
-                   
 
-                
 
-                    <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
-                </>
-            )}
-            
 
-        </>
+                        <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
+                    </>
+                )}
+                    </Paper>
+                    </Grid>   
+            </Container>
+            </main>
+    </div>          
+
+     
 
 
     );

@@ -21,8 +21,9 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './Navbar';
 import Chart from '../mixins/Chart';
 import Deposits from './Deposits';
-import Orders from './Orders';
+import Multigrafs from './Orders';
 import Navbar from './Navbar/index'
+import MapSemafor from './MapSemafor'
 
 
 const drawerWidth = 240;
@@ -119,29 +120,31 @@ export default function Dashboard() {
 
   return (
     <div>
-      <CssBaseline />
+      
 
     
       <main>
-        <div />
+        
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* Semafor */}
+            <Grid item xs={12} md={8} lg={12}>
+              <Paper className={classes.paper}>
+                <MapSemafor/>
+              </Paper>
+            </Grid>
+
+            {/* Graf */}
+            <Grid item xs={12} md={8} lg={12}>
               <Paper className={fixedHeightPaper}>
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
+            
+            {/* Multigraf*/}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders />
+                <Multigrafs />
               </Paper>
             </Grid>
           </Grid>

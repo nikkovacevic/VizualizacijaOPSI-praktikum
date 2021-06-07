@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -7,8 +7,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 //import Title from './Title';
-import { LineChart, Line } from 'recharts';
+
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line} from 'recharts';
+
 
 
 export default function GrafRegije(props) {
@@ -48,16 +50,17 @@ export default function GrafRegije(props) {
     return (
       <React.Fragment>     
         
-        <h2>Izbrana regija {props.regija}</h2>
-        <h2>Indeks delovne migracije</h2>
+        <h3>Izbrana regija: {props.regija}</h3>
+        <h3>Indeks delovne migracije</h3>
         <div>
        
-          <BarChart
-            width={1000}
-            height={300}
+          <LineChart
+            layout="vertical"
+            width={300}
+            height={800}
             data={filtered}
             margin={{
-              top: 5,
+              top: 20,
               right: 30,
               left: 20,
               bottom: 5,
@@ -66,14 +69,14 @@ export default function GrafRegije(props) {
           > 
   
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="LETO" />
-            <YAxis />
+            <XAxis domain={("dataMin","dataMax")} type="number" />
+            <YAxis dataKey="LETO" type="category" />
             <Tooltip />
             <Legend />
-            <Bar dataKey="num"  name={ime} fill="#8884d8" />
+            <Line dataKey="num"  name={ime} stroke="#8884d8" />
            
             
-          </BarChart>
+          </LineChart>
             
         </div>
       </React.Fragment>

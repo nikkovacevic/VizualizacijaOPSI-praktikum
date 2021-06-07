@@ -6,7 +6,7 @@ function ControlPanel(props) {
 
   return (
     <div className="control-panel">
-      <h3>Interactive GeoJSON</h3>
+      <h3>Semafor glede na indeks migracije</h3>
     
       
      
