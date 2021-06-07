@@ -24,6 +24,7 @@ import Deposits from './Deposits';
 import Multigrafs from './Orders';
 import Navbar from './Navbar/index'
 import MapSemafor from './MapSemafor'
+import GrafSlo from './graphs/grafSlo'
 
 
 const drawerWidth = 240;
@@ -137,7 +138,7 @@ export default function Dashboard() {
             {/* Graf */}
             <Grid item xs={12} md={8} lg={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <GrafSlo regija="SLOVENIJA"></GrafSlo>
               </Paper>
             </Grid>
             
