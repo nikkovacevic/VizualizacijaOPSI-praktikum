@@ -154,12 +154,12 @@ export default function MapRegije() {
         <main>
           
      
-
+        <div>
             <Container maxWidth="lg" className={classes.container}>
-                <div>
-                    <Grid container spacing={0} direction="row" justify="flex-start" alignItems="flex-start">
+                
+                    <Grid container spacing={3} >
 
-                        <Grid item xs={12} md={4} lg={7}>
+                        <Grid item xs={12} md={8} lg={9}>
                             <Paper className={classes.paper}>
                                 <ReactMapGL
                                     {...viewport}
@@ -186,9 +186,9 @@ export default function MapRegije() {
                             </Paper>
                         </Grid>
                     </Grid>
-                </div>
-                <Grid item xs={12} md={2} lg={4}>
-                            <Paper className={fixedHeightPaper}>                     
+                
+                <Grid item xs={12} md={4} lg={3}>
+                            <Paper className={classes.paper}>                     
                 {clickInfo && (
                     <>
 
@@ -201,6 +201,8 @@ export default function MapRegije() {
                     </Paper>
                     </Grid>   
             </Container>
+
+            </div>
             </main>
     </div>          
 
