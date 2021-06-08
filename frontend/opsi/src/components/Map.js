@@ -19,9 +19,7 @@ import nasData from './data/regije_zdruzen.json';
 import Overlay from 'react-bootstrap/Overlay'
 import Popover from 'react-bootstrap/Popover'
 
-import { updatePercentiles } from './racun_samoforja.js';
-import { dataLayer } from './barve_samoforja.js';
-import ControlPanel from './control-panel';
+
 
 const drawerWidth = 240;
 
@@ -119,7 +117,7 @@ export default function MapRegije() {
                 : null
         );
 
-        console.log(clickInfo);
+        //console.log(clickInfo);
 
     }, []);
 
@@ -177,7 +175,7 @@ export default function MapRegije() {
                         </Row>
 
                         <Row>
-                        <h2>Zemljevid z statističnimi regijami.</h2>
+                        <h2>Zemljevid z statističnimi regijami</h2>
                         </Row>
                         <Row>
                             <Col sm={12} lg={8}>
@@ -217,10 +215,8 @@ export default function MapRegije() {
 
 
                                             <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
-                                            {//<GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
-                                            }
-                                            {//<GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
-}
+                                            
+
                                         </>
                                     )}
                                 </Paper>
@@ -242,8 +238,8 @@ export default function MapRegije() {
                                                                                         
                                             <GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
                                             
-                                            {//<GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
-}
+                                            
+
                                         </>
                                     )}
                                 </Paper>

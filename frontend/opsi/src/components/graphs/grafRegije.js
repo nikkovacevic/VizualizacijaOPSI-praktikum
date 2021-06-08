@@ -73,7 +73,7 @@ export default function GrafRegije(props) {
             <YAxis dataKey="LETO" type="category" />
             <Tooltip />
             <Legend />
-            <Line dataKey="num"  name={"Delež prebivalstva, ki dela v isti statistični regiji, kot živi"} stroke="#5A7362" />
+            <Line dataKey="num"  name={"Delež prebivalstva, ki dela v regiji, kjer živi"} stroke="#5A7362" />
            
             
           </LineChart>

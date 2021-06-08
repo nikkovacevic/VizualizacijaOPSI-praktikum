@@ -79,7 +79,7 @@ export default function Graf4(props) {
     }
       
     //console.log("spol")
-    console.log(results);
+    //console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
     var ime = props.kaz;

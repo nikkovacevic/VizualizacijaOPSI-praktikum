@@ -80,7 +80,7 @@ export default function Graf5(props) {
       }
   }
     
-    console.log(results);
+    //console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
     var ime = props.kaz;

@@ -50,8 +50,8 @@ export default function GrafRegije(props) {
     return (
       <React.Fragment>     
         
-        <h3>Izbrana občina: {props.obcina}</h3>
-        <h3>Indeks delovne migracije</h3>
+        <h3>{props.obcina}</h3>
+        
         <div>
        
           <LineChart
