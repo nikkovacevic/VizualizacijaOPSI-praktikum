@@ -1,14 +1,7 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { LineChart, Line } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { PieChart, Pie, Sector, AreaChart, Area } from 'recharts';
+
+import { XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { AreaChart, Area } from 'recharts';
 
 const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
 
@@ -46,7 +39,7 @@ export default function Graf4(props) {
     const data5 = require("../data/migracije_regije.json");
     
     //console.log(data5[0].num);
-    const results = new Array();
+    const results = [];
     //var results = [];
     for ( var key in data5){
         if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča" && data5[key]['STATISTIČNA REGIJA'] === props.regija){
@@ -69,10 +62,10 @@ export default function Graf4(props) {
       return el != null;
     })
     //console.log("spol")
-    console.log(results);
+    //console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
-    var ime = props.kaz;
+    
 
 
 

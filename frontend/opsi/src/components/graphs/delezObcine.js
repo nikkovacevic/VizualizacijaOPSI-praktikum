@@ -1,14 +1,7 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { LineChart, Line } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { PieChart, Pie, Sector, AreaChart, Area } from 'recharts';
+
+import { XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { AreaChart, Area } from 'recharts';
 
 const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
 
@@ -46,7 +39,7 @@ export default function Graf4(props) {
     const data5 = require("../data/migracije_obcine.json");
     
     //console.log(data5[0].num);
-    const results = new Array();
+    const results = [];
     //var results = [];
     for ( var key in data5){
         if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Delovni migranti [brez kmetov], ki delajo zunaj občine prebivališča" && data5[key].OBČINE === props.obcina){
@@ -82,7 +75,7 @@ export default function Graf4(props) {
     //console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
-    var ime = props.kaz;
+    
 
 
 
@@ -109,8 +102,8 @@ export default function Graf4(props) {
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj občine prebivališča" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj občine prebivališča" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj občine prebivališča" stackId="1" stroke="#2b6acf" fill="#84a4d8" />
+          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj občine prebivališča" stackId="1" stroke="#b36710" fill="#d4ac7f" />
           
         </AreaChart>
       

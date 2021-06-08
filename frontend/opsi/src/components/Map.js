@@ -1,33 +1,26 @@
+//react
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+
+//map-gl
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
-import clsx from 'clsx';
+
+//styling
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from '@material-ui/core/Paper';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Alert from 'react-bootstrap/Alert'
-import Button from 'react-bootstrap/Button'
 import './css/styles.css'
-import Poskus from './poskus';
+
+//grafi
 import GrafRegije from './graphs/grafRegije.js'
 import GrafDelez from './graphs/delezRegije.js'
 import GrafSpol from './graphs/grafSpol.js'
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import nasData from './data/regije_zdruzen.json';
-import Overlay from 'react-bootstrap/Overlay'
-import Popover from 'react-bootstrap/Popover'
-
-
-
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-
     content: {
         flexGrow: 1,
         height: '100vh',
@@ -46,21 +39,13 @@ const useStyles = makeStyles((theme) => ({
     fixedHeight: {
         height: 240,
     }
-    
 }));
 
 export default function MapRegije() {
 
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const [navodila, setNavodila] = React.useState(true);
 
+    const classes = useStyles();
 
     const [viewport, setViewport] = useState({
         latitude: 46.1199444,
@@ -70,7 +55,6 @@ export default function MapRegije() {
         zoom: 6.8,
         minZoom: 6.8
     });
-
 
     const [allData, setAllData] = useState(null);
 
@@ -84,7 +68,6 @@ export default function MapRegije() {
 
     const data = useMemo(() => {
         return allData
-
     }, [allData]);
 
     const layerStyle = {
@@ -92,7 +75,7 @@ export default function MapRegije() {
         type: 'fill',
     };
 
-    const [color, setColor] = useState('#ffffff')
+    const [color, ] = useState('#ffffff')
 
     const [hoverInfo, setHoverInfo] = useState(null);
     const [clickInfo, setClickInfo] = useState(null);
@@ -117,6 +100,9 @@ export default function MapRegije() {
                 : null
         );
 
+        setNavodila(false);
+
+        //console.log(navodila);
         //console.log(clickInfo);
 
     }, []);
@@ -140,140 +126,146 @@ export default function MapRegije() {
                 : null
         );
 
-        console.log(hoveredFeature);
+        //console.log(hoveredFeature);
 
     }, []);
 
-    const [show, setShow] = useState(true);
+    if(navodila || clickInfo===null) {
+        return (
+            <div>
+                <main>
+                    <div>
+                        <Container maxWidth="lg" className={classes.container}>
+    
+                            {
+                                //true
+                            }
+    
+                            <Row>
+                                <Col sm={12} lg={8}>
+                                    <Paper className={classes.paper}>
+                                        <ReactMapGL
+                                            {...viewport}
+                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                                            onViewportChange={viewport => {
+                                                setViewport(viewport);
+                                            }}
+                                            interactiveLayerIds={['data']}
+                                            onHover={onHover}
+                                            onClick={onClick}
+                                        >
+                                            <Source id="sourcelayer" type="geojson" data={data}>
+                                                <Layer {...layerStyle} paint={{ 'fill-color': color, 'fill-opacity': 0.3, 'fill-outline-color': "#45634d" }} />
+                                            </Source>
+                                            {hoverInfo && (
+                                                    <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                                                    <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                                                </div>
+                                            )}
+                                        </ReactMapGL>
+                                    </Paper>
+                                </Col>
+    
+                                <Col sm={12} lg={4}>
+                                    <Paper className={classes.paper}>
+                                        <h3>Navodila</h3>
+                                        <p>
+                                            Pred vami je interkativni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno regijo, samo pritisnite na njo in se vam bodo prikazali grafi.
+                                        </p>
+                                    </Paper>
+                                </Col>
+                            </Row>
+    
+                        </Container>
+                    </div>
+                </main>
+            </div>
+        );
+    } else {
 
-    return (
-        <div>
+        return (
+            <div>
+                <main>
+                    <div>
+                        <Container maxWidth="lg" className={classes.container}>
 
+                            {
+                            //false
+                            }
 
-            <main>
+                            <Row>
+                                <Col sm={12} lg={8}>
+                                    <Paper className={classes.paper}>
+                                        <ReactMapGL
+                                            {...viewport}
+                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                                            onViewportChange={viewport => {
+                                                setViewport(viewport);
+                                            }}
+                                            interactiveLayerIds={['data']}
+                                            onHover={onHover}
+                                            onClick={onClick}
+                                        >
 
+                                            <Source id="sourcelayer" type="geojson" data={data}>
+                                                <Layer {...layerStyle} paint={{ 'fill-color': color, 'fill-opacity': 0.3, 'fill-outline-color': "#45634d" }} />
+                                            </Source>
+                                            {hoverInfo && (
+                                                    <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                                                    <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                                                </div>
+                                            )}
+                                        </ReactMapGL>
+                                    </Paper>
+                                </Col>
 
-                <div>
-                    <Container maxWidth="lg" className={classes.container}>
-
-                        <Row>
-                            <Alert show={show} variant="primary">
-                                <Alert.Heading>Kratka navodila!</Alert.Heading>
-                                <p>
-                                    Pred vami je interkativni zemljevid. Če si želiti ogledat podrobneje statistiko za posamezno regijo samo pritisnite na njo in
-                                    se vam bo prikazalo.
-                                 </p>
-                                <hr />
-                                <div className="d-flex justify-content-end">
-                                    <Button onClick={() => setShow(false)} variant="outline-primary">
-                                        Zapri me!
-                                    </Button>
-                                </div>
-                            </Alert>
-
-                            {!show && <Button onClick={() => setShow(true)}variant="secondary">Prikaži opozorilo</Button>}
-                        </Row>
-
-                        <Row>
-                        <h2>Zemljevid z statističnimi regijami</h2>
-                        </Row>
-                        <Row>
-                            <Col sm={12} lg={8}>
-                                <Paper className={classes.paper}>
-                                    <ReactMapGL
-                                        {...viewport}
-                                        mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
-                                        mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
-                                        onViewportChange={viewport => {
-                                            setViewport(viewport);
-                                        }}
-                                        interactiveLayerIds={['data']}
-                                        onHover={onHover}
-                                        onClick={onClick}
-                                    >
-
-                                        <Source id="sourcelayer" type="geojson" data={data}>
-                                            <Layer {...layerStyle} paint={{ 'fill-color': color, 'fill-opacity': 0.3, 'fill-outline-color': "#45634d" }} />
-                                        </Source>
-                                        {hoverInfo && (
-                                            <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
-
-                                                <div>{hoverInfo.feature.properties.SR_UIME}</div>
-                                            </div>
+                                <Col sm={12} lg={4}>
+                                    <Paper className={classes.paper}>
+                                        {clickInfo && (
+                                            <>
+                                                <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
+                                            </>
                                         )}
-                                    </ReactMapGL>
-                                </Paper>
-                            </Col>
-
-
-                            <Col sm={12} lg={4}>
-                                <Paper className={classes.paper}>
-                                    {clickInfo && (
-                                        <>
-
-
-
-
-                                            <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
-                                            
-
-                                        </>
-                                    )}
-                                </Paper>
-                            </Col>
-
-                        </Row>
-                        
-                        
-
-                        <Row>
+                                    </Paper>
+                                </Col>
+                            </Row>
                             
-                         
-                        <Col sm={12} lg={6}>
-                        <div className="div-gori">
-                                <Paper className={classes.paper}>
-                                    {clickInfo && (
-                                        <>
+                            <Row>
+                                <Col sm={12} lg={6}>
+                                    <div className="div-gori">
+                                        <Paper className={classes.paper}>
+                                            {clickInfo && (
+                                                <>
+                                                    <GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
+                                                </>
+                                            )}
+                                        </Paper>
+                                    </div>
+                                </Col>
 
-                                                                                        
-                                            <GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
-                                            
-                                            
+                                <Col sm={12} lg={6}>
+                                    <div className="div-gori">
+                                        <Paper className={classes.paper}>
+                                            {clickInfo && (
+                                                <>
+                                                    <GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
+                                                </>
+                                            )}
+                                        </Paper>
+                                    </div>
+                                </Col>
+                            </Row>
 
-                                        </>
-                                    )}
-                                </Paper>
-                                </div>
-                            </Col>
-                            <Col sm={12} lg={6}>
-                            <div className="div-gori">
-                                <Paper className={classes.paper}>
-                                    {clickInfo && (
-                                        <>
-
-                                                                                        
-                                            
-                                            
-                                            <GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
-
-                                        </>
-                                    )}
-                                </Paper>
-                                </div>
-                            </Col>
-                        
-                        </Row>
-
-
-                    </Container>
-
-                </div>
-            </main>
-           
-        </div>
+                        </Container>
+                    </div>
+                </main>
+            </div>
 
 
 
 
-    );
+        );
+    }
 }

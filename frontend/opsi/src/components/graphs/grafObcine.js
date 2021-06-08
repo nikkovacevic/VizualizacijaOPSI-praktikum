@@ -1,86 +1,85 @@
-import React, { PureComponent } from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-//import Title from './Title';
+import React from 'react';
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { LineChart, Line} from 'recharts';
+
+import { XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line } from 'recharts';
 
 
 
 export default function GrafRegije(props) {
-    
 
-    var kaz = "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča";
-    var reg = "Obalno-kraška";
-    var leto = 2020;
-    
-    const data5 = require("../data/migracije_obcine.json");
-    //console.log(data5[0].num);
-    const results = new Array();
-    //var results = [];
-    for ( var key in data5){
-        if(props.regija==""){
-            return(
-                <React.Fragment>
 
-                </React.Fragment>
-            );
-        }
-        else{
-        if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Indeks delovne migracije" && data5[key].OBČINE === props.obcina){
+  const data5 = require("../data/migracije_obcine.json");
+  //console.log(data5[0].num);
+  const results = [];
+  //var results = [];
+  for (var key in data5) {
+    if (props.regija === "") {
+      return (
+        <React.Fragment>
+
+        </React.Fragment>
+      );
+    }
+    else {
+      if (data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Indeks delovne migracije" && data5[key].OBČINE === props.obcina) {
         //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
-            results[key] = data5[key];
-        }
+        results[key] = data5[key];
+      }
     }
-    }
-    var filtered = results.filter(function (el){
-      return el != null;
-    })
-    //console.log(results);
-    var ime = filtered[1].KAZALNIK;
-
-
-
-    return (
-      <React.Fragment>     
-        
-        <h3>{props.obcina}</h3>
-        
-        <div>
-       
-          <LineChart
-            layout="vertical"
-            width={300}
-            height={800}
-            data={filtered}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-           
-          > 
+  }
+  var filtered = results.filter(function (el) {
+    return el != null;
+  })
+  //console.log(results);
   
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis domain={("dataMin","dataMax")} type="number" />
-            <YAxis dataKey="LETO" type="category" />
-            <Tooltip />
-            <Legend />
-            <Line dataKey="num"  name={ime} stroke="#8884d8" />
-           
-            
-          </LineChart>
-            
-        </div>
-      </React.Fragment>
-    );
+
+  for (var i = 0; i < results.length; i++) {
+    var obj = results[i];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
+        obj[prop] = +obj[prop];
+      }
+    }
   }
 
-  
+
+
+  return (
+    <React.Fragment>
+
+      <h3>{props.obcina}</h3>
+
+      <div>
+
+        <LineChart
+          layout="vertical"
+          width={300}
+          height={555}
+          data={filtered}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+
+        >
+
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis domain={("dataMin", "dataMax")} type="number" />
+          <YAxis dataKey="LETO" type="category" />
+          <Tooltip />
+          <Legend />
+          <Line dataKey="num" name={"Indeks"} stroke="#5A7362" />
+
+
+        </LineChart>
+
+      </div>
+      <p>Indeks predstavlja delež prebivalstva, ki dela v občini, kjer živi</p>
+    </React.Fragment>
+  );
+}
+
+

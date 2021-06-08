@@ -1,14 +1,7 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { LineChart, Line } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { PieChart, Pie, Sector, AreaChart, Area } from 'recharts';
+
+import {  XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import {  AreaChart, Area } from 'recharts';
 
 const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
 
@@ -46,7 +39,7 @@ export default function Graf5(props) {
     const data5 = require("../data/delovno_aktivno_leto.json");
     
     //console.log(data5[0].num);
-    const results = new Array();
+    const results = [];
     //var results = [];
     var leto = 2010;
     for ( var key in data5){
@@ -83,7 +76,7 @@ export default function Graf5(props) {
     //console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
-    var ime = props.kaz;
+    
 
 
 
@@ -110,8 +103,8 @@ export default function Graf5(props) {
           <XAxis dataKey="leto" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="number" dataKey="num" name="Moški" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="number" dataKey="zenske" name="Ženske" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="number" dataKey="num" name="Moški" stackId="1" stroke="#2b6acf" fill="#84a4d8" />
+          <Area type="number" dataKey="zenske" name="Ženske" stackId="1" stroke="#b36710" fill="#d4ac7f" />
           
         </AreaChart>
       

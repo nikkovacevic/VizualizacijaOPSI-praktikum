@@ -1,28 +1,17 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { LineChart, Line } from 'recharts';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 
 
 export default function Graf2(props) {
     //const classes = useStyles();
-
-    var kaz = "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča";
-    var reg = "Obalno-kraška";
-    var leto = 2020;
     
     const data5 = require("../data/migracije_regije.json");
     
     //console.log(data5[0].num);
-    const results = new Array();
+    const results = [];
     //var results = [];
     for ( var key in data5){
         if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === props.kaz && data5[key].LETO === props.leto){
@@ -66,7 +55,7 @@ export default function Graf2(props) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="num"  name={ime} fill="#8884d8" />
+            <Bar dataKey="num"  name={ime} fill="#b36710" />
            
             
           </BarChart>

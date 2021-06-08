@@ -1,17 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
 import Container from 'react-bootstrap/Container'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import Button from 'react-bootstrap/Button'
-import Nav from 'react-bootstrap/Nav'
+
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
-import Poskus from './poskus';
-import GrafRegije from './graphs/grafRegije.js'
-import nasData from './data/regije_zdruzen.json';
-import Overlay from 'react-bootstrap/Overlay'
-import Popover from 'react-bootstrap/Popover'
+
 
 import { updatePercentiles } from  './samofor/racun_samoforja.js';
 import { dataLayer } from './samofor/barve_samoforja.js';
@@ -28,12 +21,12 @@ export default function MapSemafor() {
         minZoom: 6.8
     });
 
-    const [year, setYear] = useState(2009);
+    const [year, setYear] = useState(2020);
     const [allData, setAllData] = useState(null);
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/Aljaz672/Test/main/barvanje_regij.geojson'
+            'https://raw.githubusercontent.com/KovacevicNik/OPSI-geojson-storage/main/barvanje_regij.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));
@@ -151,6 +144,9 @@ const data = useMemo(() => {
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
 
                             <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                            {
+                                //tu dodaj
+                            }
                             
                         </div>
                     )}

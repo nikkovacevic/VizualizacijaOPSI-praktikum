@@ -1,31 +1,19 @@
-import React, { PureComponent } from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-//import Title from './Title';
+import React from 'react';
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+import { XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { LineChart, Line} from 'recharts';
 
 
 
 export default function GrafRegije(props) {
     
-
-    var kaz = "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča";
-    var reg = "Obalno-kraška";
-    var leto = 2020;
-    
     const data5 = require("../data/migracije_regije.json");
     //console.log(data5[0].num);
-    const results = new Array();
+    const results = [];
     //var results = [];
     for ( var key in data5){
-        if(props.regija==""){
+        if(props.regija===""){
             return(
                 <React.Fragment>
 
@@ -43,7 +31,7 @@ export default function GrafRegije(props) {
       return el != null;
     })
     //console.log(results);
-    var ime = filtered[1].KAZALNIK;
+    
 
 
 
@@ -73,12 +61,14 @@ export default function GrafRegije(props) {
             <YAxis dataKey="LETO" type="category" />
             <Tooltip />
             <Legend />
-            <Line dataKey="num"  name={"Delež prebivalstva, ki dela v regiji, kjer živi"} stroke="#5A7362" />
+            <Line dataKey="num"  name={"Indeks"} stroke="#5A7362" />
            
             
           </LineChart>
             
         </div>
+            <p>Indeks predstavlja delež prebivalstva, ki dela v regiji, kjer živi</p>
+
       </React.Fragment>
     );
   }
