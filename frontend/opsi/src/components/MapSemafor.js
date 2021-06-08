@@ -1,16 +1,45 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
+
+
+import { makeStyles } from '@material-ui/core/styles';
 import Container from 'react-bootstrap/Container'
-
+import Paper from '@material-ui/core/Paper';
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import './css/styles.css'
-
 
 import { updatePercentiles } from  './samofor/racun_samoforja.js';
 import { dataLayer } from './samofor/barve_samoforja.js';
 import ControlPanel from './samofor/control-panel';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+    content: {
+        flexGrow: 1,
+        height: '100vh',
+        overflow: 'auto',
+    },
+    container: {
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
+    },
+    paper: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    },
+    fixedHeight: {
+        height: 240,
+    }
+}));
+
 export default function MapSemafor() {
+
+    const classes = useStyles();
 
     const [viewport, setViewport] = useState({
         latitude: 46.1199444,
@@ -23,6 +52,10 @@ export default function MapSemafor() {
 
     const [year, setYear] = useState(2020);
     const [allData, setAllData] = useState(null);
+    
+
+    
+
 
     useEffect(() => {
         fetch(
@@ -46,13 +79,9 @@ const data = useMemo(() => {
     const [hoverInfo, setHoverInfo] = useState(null);
     const [clickInfo, setClickInfo] = useState(null);
 
-    /*const [show, setShow] = useState(false);
-    const [target, setTarget] = useState(null);
-    const ref = useRef(null);
-    */
+  
     const onClick = useCallback(event => {
-        //setShow(!show);
-        //setTarget(event.target);
+        
         const {
             features,
             srcEvent: { offsetX, offsetY }
@@ -61,6 +90,7 @@ const data = useMemo(() => {
 
         const clickedFeature = features && features[0];
 
+        
         setClickInfo(
             clickedFeature
                 ? {
@@ -103,27 +133,147 @@ const data = useMemo(() => {
     return (
         
         <>
-
-                {/*
-                <div ref={ref}>
-                <Overlay
-                    show={show}
-                    target={target}
-                    placement="bottom"
-                    container={ref.current}
-                    containerPadding={20}
+         <div>
+                <main>
+                    <div>
+                        <Container maxWidth="lg" className={classes.container}>
+    
+                            {
+                               
+                            }
+    
+                            <Row>
+                                <Col sm={12} lg={8}>
+                                    <Paper className={classes.paper}>
+                                         <ReactMapGL
+                    {...viewport}
+                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                    onViewportChange={viewport => {
+                        setViewport(viewport);
+                    }}
+                    interactiveLayerIds={['data']}
+                    onHover={onHover}
+                    onClick={onClick}
                 >
 
-                    <Popover id="popover-contained">
-                        <Popover.Title as="h3">Popover bottom</Popover.Title>
-                        <Popover.Content>
-                            <strong>Holy guacamole!</strong> Check this info.
-          </Popover.Content>
-                    </Popover>
-                </Overlay>
-            </div> 
-                */}
-            <div>
+                    <Source id="sourcelayer" type="geojson" data={data}>
+                        <Layer {...dataLayer}  />
+                    </Source>
+                    {hoverInfo && (
+                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+
+                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                            <hr></hr>
+                            {
+                             <div>{hoverInfo.feature.properties.value}</div>
+                            }
+                            
+                        </div>
+                    )}
+                </ReactMapGL>
+
+
+                                    </Paper>
+                                </Col>
+    
+                                <Col sm={12} lg={4}>
+                                    <Paper className={classes.paper}>
+                                    <ControlPanel year={year} onChange={value => setYear(value)} />
+                                        <h3>Navodila</h3>
+                                        <p>• Povlečite drsnik ter po letih spremljajte spreminjanje indeksa oziroma delež prebivalstva, ki dela v regiji, kjer živi.</p>
+                                       
+                                       
+                                        <img src={require('../img/slider.png').default} />
+                                    
+                                       <p style={{textAlign: 'left'}}>⇧ Spreminjanje barve od najmanjšega do največjega inkeksa.</p> 
+                                        <p style={{textAlign: 'left'}}>• Miško prislonite na regijo ter poglejte kakšen je delež prebivalstva, ki dela v regiji, kjer živi.</p> 
+                                    </Paper>
+                                </Col>
+                            </Row>
+    
+                        </Container>
+                    </div>
+                </main>
+            </div>        
+
+        </>
+
+
+    );
+}
+
+/*
+ <div>
+                <main>
+                    <div>
+                        <Container maxWidth="lg" className={classes.container}>
+    
+                            {
+                                //true
+                            }
+    
+                            <Row>
+                                <Col sm={12} lg={8}>
+                                    <Paper className={classes.paper}>
+                                         <ReactMapGL
+                    {...viewport}
+                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                    onViewportChange={viewport => {
+                        setViewport(viewport);
+                    }}
+                    interactiveLayerIds={['data']}
+                    onHover={onHover}
+                    onClick={onClick}
+                >
+
+                    <Source id="sourcelayer" type="geojson" data={data}>
+                        <Layer {...dataLayer}  />
+                    </Source>
+                    {hoverInfo && (
+                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+
+                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                            <hr></hr>
+                            {
+                             <div>{hoverInfo.feature.properties.value}</div>
+                            }
+                            
+                        </div>
+                    )}
+                </ReactMapGL>
+
+
+                                    </Paper>
+                                </Col>
+    
+                                <Col sm={12} lg={4}>
+                                    <Paper className={classes.paper}>
+                                        <h3>Navodila</h3>
+                                        <p>
+                                            Pred vami je interkativni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno regijo, samo pritisnite na njo in se vam bodo prikazali grafi.
+                                        </p>
+                                    </Paper>
+                                </Col>
+                            </Row>
+    
+                        </Container>
+                    </div>
+                </main>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+ <div>
             <ControlPanel year={year} onChange={value => setYear(value)} />
                 <ReactMapGL
                     {...viewport}
@@ -144,8 +294,9 @@ const data = useMemo(() => {
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
 
                             <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                            <hr></hr>
                             {
-                                //tu dodaj
+                             <div>{hoverInfo.feature.properties.value}</div>
                             }
                             
                         </div>
@@ -154,10 +305,5 @@ const data = useMemo(() => {
                 
             </div>
 
-                      
 
-        </>
-
-
-    );
-}
+*/

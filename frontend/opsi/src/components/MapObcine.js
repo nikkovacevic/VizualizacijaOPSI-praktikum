@@ -105,8 +105,6 @@ export default function MapObcine() {
 
         setNavodila(false);
 
-        //console.log(clickInfo);
-
     }, []);
 
     const onHover = useCallback(event => {

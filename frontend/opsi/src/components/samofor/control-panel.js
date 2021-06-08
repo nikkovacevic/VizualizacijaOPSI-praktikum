@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+
 function ControlPanel(props) {
   const {year} = props;
 
@@ -10,7 +11,7 @@ function ControlPanel(props) {
       
      
       <hr />
-      <label>Leto:<b>{year}</b></label>
+      <label><b>Leto:{year}</b></label>
       <div key={'year'} className="input">
         <input
           type="range"
