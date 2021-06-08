@@ -38,37 +38,48 @@ const renderTooltipContent = (o) => {
 
 
 
-export default function Graf4(props) {
+export default function Graf5(props) {
     //const classes = useStyles();
 
     
     
-    const data5 = require("../data/migracije_regije.json");
+    const data5 = require("../data/delovno_aktivno_leto.json");
     
     //console.log(data5[0].num);
     const results = new Array();
     //var results = [];
+    var leto = 2010;
     for ( var key in data5){
-        if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča" && data5[key]['STATISTIČNA REGIJA'] === props.regija){
-        //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
-            results[key] = data5[key];
-            /*for(var key2 in data5){
-                if(data5.hasOwnProperty(key2) && data5[key2]["STATISTIČNA REGIJA"] === results[key]["STATISTIČNA REGIJA"] && data5[key2].KAZALNIK === "Delovno aktivno prebivalstvo [brez kmetov], ki delajo v regiji prebivališča"){
+        if(data5.hasOwnProperty(key) && data5[key].OBČINE === props.obcina && data5[key].SPOL === "Moški" && data5[key].MESEC !== "2005M12" && data5[key].MESEC !== "2006M12" && data5[key].MESEC !== "2007M12" && data5[key].MESEC !== "2008M12" && data5[key].MESEC !== "2009M12"){
+            for ( var key2 in data5){
+                if(data5.hasOwnProperty(key2) && data5[key2].OBČINE === props.obcina && data5[key2].SPOL === "Ženske" && data5[key2].MESEC === data5[key].MESEC){
+                //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
                     
-                    results[key].znotraj = data5[key2].num;
-                    break;
-                    //console.log("znotraj" +data5[key2].num + " " + results[key].znotraj)
+                    results[key] = data5[key];
+                    results[key].leto = leto;
+                    results[key].zenske = data5[key2].num;
+                    leto += 1;
+                    
                 }
-            }*/
-            results[key].znotraj = 100 - results[key].num;
-            
+            }
+           
             
         }
     }
+   
     var filtered = results.filter(function (el){
       return el != null;
     })
-    //console.log("spol")
+
+    for(var i = 0; i < results.length; i++){
+      var obj = results[i];
+      for(var prop in obj){
+          if(obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])){
+              obj[prop] = +obj[prop];   
+          }
+      }
+  }
+    
     console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
@@ -96,11 +107,11 @@ export default function Graf4(props) {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="LETO" />
+          <XAxis dataKey="leto" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj regije prebivališča" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj regije prebivališča" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="number" dataKey="num" name="Moški" stackId="1" stroke="#8884d8" fill="#8884d8" />
+          <Area type="number" dataKey="zenske" name="Ženske" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           
         </AreaChart>
       

@@ -43,13 +43,13 @@ export default function Graf4(props) {
 
     
     
-    const data5 = require("../data/migracije_regije.json");
+    const data5 = require("../data/migracije_obcine.json");
     
     //console.log(data5[0].num);
     const results = new Array();
     //var results = [];
     for ( var key in data5){
-        if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Delovni migranti [brez kmetov], ki delajo zunaj regije prebivališča" && data5[key]['STATISTIČNA REGIJA'] === props.regija){
+        if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Delovni migranti [brez kmetov], ki delajo zunaj občine prebivališča" && data5[key].OBČINE === props.obcina){
         //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
             results[key] = data5[key];
             /*for(var key2 in data5){
@@ -68,6 +68,16 @@ export default function Graf4(props) {
     var filtered = results.filter(function (el){
       return el != null;
     })
+
+    for(var i = 0; i < results.length; i++){
+        var obj = results[i];
+        for(var prop in obj){
+            if(obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])){
+                obj[prop] = +obj[prop];   
+            }
+        }
+    }
+      
     //console.log("spol")
     console.log(results);
     //console.log(filtered[1].num);
@@ -99,8 +109,8 @@ export default function Graf4(props) {
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj regije prebivališča" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj regije prebivališča" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj občine prebivališča" stackId="1" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj občine prebivališča" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           
         </AreaChart>
       

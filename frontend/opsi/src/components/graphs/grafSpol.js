@@ -38,7 +38,7 @@ const renderTooltipContent = (o) => {
 
 
 
-export default function Graf4(props) {
+export default function Graf5(props) {
     //const classes = useStyles();
 
     
@@ -49,9 +49,9 @@ export default function Graf4(props) {
     const results = new Array();
     //var results = [];
     for ( var key in data5){
-        if(data5.hasOwnProperty(key) && data5[key]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key].SPOL === "Moški"){
+        if(data5.hasOwnProperty(key) && data5[key]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key].SPOL === "Moški" && data5[key].LETO>2009){
             for ( var key2 in data5){
-                if(data5.hasOwnProperty(key2) && data5[key2]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key2].SPOL === "Ženski" && data5[key2].LETO === data5[key].LETO){
+                if(data5.hasOwnProperty(key2) && data5[key2]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key2].SPOL === "Ženske" && data5[key2].LETO === data5[key].LETO){
                 //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
                     results[key] = data5[key];
                     
@@ -64,10 +64,20 @@ export default function Graf4(props) {
             
         }
     }
+   
     var filtered = results.filter(function (el){
       return el != null;
     })
-    console.log("spol")
+
+    for(var i = 0; i < results.length; i++){
+      var obj = results[i];
+      for(var prop in obj){
+          if(obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])){
+              obj[prop] = +obj[prop];   
+          }
+      }
+  }
+    
     console.log(results);
     //console.log(filtered[1].num);
     //console.log(filtered[1].num*2);
@@ -98,8 +108,8 @@ export default function Graf4(props) {
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="monotone" dataKey="num" name="Moški" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="zenske" name="Ženske" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="number" dataKey="num" name="Moški" stackId="1" stroke="#8884d8" fill="#8884d8" />
+          <Area type="number" dataKey="zenske" name="Ženske" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           
         </AreaChart>
       

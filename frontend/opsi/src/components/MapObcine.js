@@ -8,7 +8,9 @@ import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import './css/styles.css'
-
+import GrafIndeks from './graphs/grafObcine.js'
+import GrafDelez from './graphs/delezObcine.js'
+import GrafSpol from './graphs/SpolObcine.js'
 
 export default function MapObcine() {
 
@@ -91,6 +93,10 @@ export default function MapObcine() {
                 </div>
             )}
         </ReactMapGL>
+
+        <GrafIndeks obcina = "Maribor"></GrafIndeks>
+        <GrafDelez obcina = "Maribor"></GrafDelez>
+        <GrafSpol obcina = "Maribor"></GrafSpol>
     </div>
 
     );

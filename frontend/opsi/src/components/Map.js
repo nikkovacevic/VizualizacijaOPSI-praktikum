@@ -216,8 +216,10 @@ export default function MapRegije() {
 
 
                                             <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
-                                            
-                                            
+                                            {//<GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
+                                            }
+                                            {//<GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
+}
                                         </>
                                     )}
                                 </Paper>
