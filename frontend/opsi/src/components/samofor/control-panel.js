@@ -2,11 +2,10 @@ import * as React from 'react';
 
 function ControlPanel(props) {
   const {year} = props;
-  console.log(year);
 
   return (
     <div className="control-panel">
-      <h3>Semafor glede na indeks migracije</h3>
+      
     
       
      

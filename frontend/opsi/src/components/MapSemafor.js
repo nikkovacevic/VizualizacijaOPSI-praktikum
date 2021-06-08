@@ -13,9 +13,9 @@ import nasData from './data/regije_zdruzen.json';
 import Overlay from 'react-bootstrap/Overlay'
 import Popover from 'react-bootstrap/Popover'
 
-import { updatePercentiles } from  './racun_samoforja.js';
-import { dataLayer } from './barve_samoforja.js';
-import ControlPanel from './control-panel';
+import { updatePercentiles } from  './samofor/racun_samoforja.js';
+import { dataLayer } from './samofor/barve_samoforja.js';
+import ControlPanel from './samofor/control-panel';
 
 export default function MapSemafor() {
 
@@ -28,21 +28,20 @@ export default function MapSemafor() {
         minZoom: 6.8
     });
 
-    const [year, setYear] = useState(2005);
+    const [year, setYear] = useState(2009);
     const [allData, setAllData] = useState(null);
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/KovacevicNik/OPSI-geojson-storage/main/regije_zdruzen.geojson'
+            'https://raw.githubusercontent.com/Aljaz672/Test/main/barvanje_regij.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));
     }, []);
 
-    const data = useMemo(() => {
-        return allData 
-        //&& updatePercentiles(allData, f => f.properties.income.year);
-    }, [allData]);
+const data = useMemo(() => {
+        return allData && updatePercentiles(allData, f => f.properties.barvanje[year]);
+      }, [allData, year]);
 
     const layerStyle = {
         id: 'data',
@@ -152,6 +151,7 @@ export default function MapSemafor() {
                         <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
 
                             <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                            
                         </div>
                     )}
                 </ReactMapGL>
