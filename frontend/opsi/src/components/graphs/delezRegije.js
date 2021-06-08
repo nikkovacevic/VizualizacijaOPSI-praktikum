@@ -10,7 +10,7 @@ import { LineChart, Line } from 'recharts';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PieChart, Pie, Sector, AreaChart, Area } from 'recharts';
 
-const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(fixed)}%`;
+const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
 
 const getPercent = (value, total) => {
   const ratio = total > 0 ? value / total : 0;
@@ -24,7 +24,7 @@ const renderTooltipContent = (o) => {
 
   return (
     <div className="customized-tooltip-content">
-      <p className="total">{`${label} (Total: ${total})`}</p>
+      <p className="total">{`${label} (Delež: ${total})`}</p>
       <ul className="list">
         {payload.map((entry, index) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
@@ -99,8 +99,8 @@ export default function Graf4(props) {
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj regije prebivališča" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj regije prebivališča" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="monotone" dataKey="num" name="Delavci, ki delajo zunaj regije prebivališča" stackId="1" stroke="#2b6acf" fill="#84a4d8" />
+          <Area type="monotone" dataKey="znotraj" name="Delavci, ki delajo znotraj regije prebivališča" stackId="1" stroke="#b36710" fill="#d4ac7f" />
           
         </AreaChart>
       

@@ -47,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
     },
     fixedHeight: {
         height: 240,
-    },
+    }
+    
 }));
 
 export default function MapRegije() {
@@ -226,6 +227,48 @@ export default function MapRegije() {
                             </Col>
 
                         </Row>
+                        
+                        
+
+                        <Row>
+                            
+                         
+                        <Col sm={12} lg={6}>
+                        <div className="div-gori">
+                                <Paper className={classes.paper}>
+                                    {clickInfo && (
+                                        <>
+
+                                                                                        
+                                            <GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
+                                            
+                                            {//<GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
+}
+                                        </>
+                                    )}
+                                </Paper>
+                                </div>
+                            </Col>
+                            <Col sm={12} lg={6}>
+                            <div className="div-gori">
+                                <Paper className={classes.paper}>
+                                    {clickInfo && (
+                                        <>
+
+                                                                                        
+                                            
+                                            
+                                            <GrafDelez regija={clickInfo.feature.properties.SR_UIME}></GrafDelez>
+
+                                        </>
+                                    )}
+                                </Paper>
+                                </div>
+                            </Col>
+                        
+                        </Row>
+
+
                     </Container>
 
                 </div>

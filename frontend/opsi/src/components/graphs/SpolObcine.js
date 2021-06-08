@@ -10,7 +10,7 @@ import { LineChart, Line } from 'recharts';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PieChart, Pie, Sector, AreaChart, Area } from 'recharts';
 
-const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(fixed)}%`;
+const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
 
 const getPercent = (value, total) => {
   const ratio = total > 0 ? value / total : 0;

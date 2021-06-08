@@ -50,14 +50,14 @@ export default function GrafRegije(props) {
     return (
       <React.Fragment>     
         
-        <h3>Izbrana regija: {props.regija}</h3>
-        <h3>Indeks delovne migracije</h3>
+        <h3>{props.regija}</h3>
+        
         <div>
        
           <LineChart
             layout="vertical"
             width={300}
-            height={800}
+            height={555}
             data={filtered}
             margin={{
               top: 20,
@@ -73,7 +73,7 @@ export default function GrafRegije(props) {
             <YAxis dataKey="LETO" type="category" />
             <Tooltip />
             <Legend />
-            <Line dataKey="num"  name={ime} stroke="#8884d8" />
+            <Line dataKey="num"  name={"Delež prebivalstva, ki dela v isti statistični regiji, kot živi"} stroke="#5A7362" />
            
             
           </LineChart>
