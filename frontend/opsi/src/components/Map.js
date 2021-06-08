@@ -11,7 +11,8 @@ import Button from 'react-bootstrap/Button'
 import './css/styles.css'
 import Poskus from './poskus';
 import GrafRegije from './graphs/grafRegije.js'
-import grafSpol from './graphs/spolRegije.js'
+import GrafDelez from './graphs/delezRegije.js'
+import GrafSpol from './graphs/grafSpol.js'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import nasData from './data/regije_zdruzen.json';
@@ -215,7 +216,8 @@ export default function MapRegije() {
 
 
                                             <GrafRegije regija={clickInfo.feature.properties.SR_UIME}></GrafRegije>
-
+                                            
+                                            
                                         </>
                                     )}
                                 </Paper>
@@ -226,6 +228,7 @@ export default function MapRegije() {
 
                 </div>
             </main>
+           
         </div>
 
 
