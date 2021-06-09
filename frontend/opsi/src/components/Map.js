@@ -15,7 +15,7 @@ import './css/styles.css'
 //grafi
 import GrafRegije from './graphs/grafRegije.js'
 import GrafDelez from './graphs/delezRegije.js'
-import GrafSpol from './graphs/grafSpol.js'
+import SpolRegije from './graphs/spolRegije.js'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -238,7 +238,7 @@ export default function MapRegije() {
                                         <Paper className={classes.paper}>
                                             {clickInfo && (
                                                 <>
-                                                    <GrafSpol regija={clickInfo.feature.properties.SR_UIME}></GrafSpol>
+                                                    <SpolRegije regija={clickInfo.feature.properties.SR_UIME}></SpolRegije>
                                                 </>
                                             )}
                                         </Paper>

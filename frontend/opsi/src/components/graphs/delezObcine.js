@@ -31,7 +31,7 @@ const renderTooltipContent = (o) => {
 
 
 
-export default function Graf4(props) {
+export default function DelezObcine(props) {
     //const classes = useStyles();
 
     

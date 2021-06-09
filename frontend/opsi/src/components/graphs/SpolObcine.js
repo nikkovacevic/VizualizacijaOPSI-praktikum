@@ -31,7 +31,7 @@ const renderTooltipContent = (o) => {
 
 
 
-export default function Graf5(props) {
+export default function SpolObcine(props) {
     //const classes = useStyles();
 
     

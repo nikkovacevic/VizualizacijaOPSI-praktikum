@@ -6,7 +6,7 @@ import { LineChart, Line } from 'recharts';
 
 
 
-export default function GrafRegije(props) {
+export default function GrafObcine(props) {
 
 
   const data5 = require("../data/migracije_obcine.json");

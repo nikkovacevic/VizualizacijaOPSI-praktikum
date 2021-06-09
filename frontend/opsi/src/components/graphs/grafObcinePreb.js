@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 
-export default function Graf5(props) {
+export default function GrafObcinePreb(props) {
     //const classes = useStyles();
 
 

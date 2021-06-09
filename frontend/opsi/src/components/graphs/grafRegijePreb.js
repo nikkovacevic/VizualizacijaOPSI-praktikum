@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 
-export default function Graf3(props) {
+export default function GrafRegijePreb(props) {
     //const classes = useStyles();
 
   

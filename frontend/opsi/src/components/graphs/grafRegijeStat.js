@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 
-export default function Graf2(props) {
+export default function GrafRegijeStat(props) {
     //const classes = useStyles();
     
     const data5 = require("../data/migracije_regije.json");
