@@ -1,25 +1,25 @@
+//react
 import React from 'react';
+
+//styling
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
+//grafi
 import Multigrafs from './StatistikaGrafi';
-
-import MapSemafor from './MapSemafor'
-import GrafSlo from './graphs/grafSlo'
-
+import GrafSlo from './graphs/grafSlo';
+import MapSemafor from './MapSemafor';
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 24,
   },
   toolbarIcon: {
     display: 'flex',
@@ -94,23 +94,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
+
   const classes = useStyles();
-  
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div>
-      
 
-    
       <main>
-        
+
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Semafor */}
             <Grid item xs={12} md={8} lg={12}>
               <Paper className={classes.paper}>
-                <MapSemafor/>
+                <MapSemafor />
               </Paper>
             </Grid>
 
@@ -120,7 +118,7 @@ export default function Dashboard() {
                 <GrafSlo regija="SLOVENIJA"></GrafSlo>
               </Paper>
             </Grid>
-            
+
             {/* Multigraf*/}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
@@ -128,7 +126,7 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          
+
         </Container>
       </main>
     </div>

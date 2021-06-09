@@ -1,18 +1,15 @@
+//react
 import React from 'react';
 
-
+//grafi
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { LineChart, Line } from 'recharts';
 
-
-
 export default function GrafObcine(props) {
 
-
   const data5 = require("../data/migracije_obcine.json");
-  //console.log(data5[0].num);
   const results = [];
-  //var results = [];
+
   for (var key in data5) {
     if (props.regija === "") {
       return (
@@ -23,16 +20,14 @@ export default function GrafObcine(props) {
     }
     else {
       if (data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Indeks delovne migracije" && data5[key].OBČINE === props.obcina) {
-        //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
         results[key] = data5[key];
       }
     }
   }
+
   var filtered = results.filter(function (el) {
     return el != null;
-  })
-  //console.log(results);
-  
+  });
 
   for (var i = 0; i < results.length; i++) {
     var obj = results[i];
@@ -42,8 +37,6 @@ export default function GrafObcine(props) {
       }
     }
   }
-
-
 
   return (
     <React.Fragment>
@@ -72,7 +65,6 @@ export default function GrafObcine(props) {
           <Tooltip />
           <Legend />
           <Line dataKey="num" name={"Indeks"} stroke="#5A7362" />
-
 
         </LineChart>
 

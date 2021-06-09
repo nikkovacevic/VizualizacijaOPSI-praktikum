@@ -7,15 +7,15 @@ import ReactMapGL, { Layer, Source } from 'react-map-gl';
 //styling
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import './css/styles.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './css/styles.css';
 
 //grafi
-import GrafRegije from './graphs/grafRegije.js'
-import GrafDelez from './graphs/delezRegije.js'
-import SpolRegije from './graphs/spolRegije.js'
+import GrafRegije from './graphs/grafRegije.js';
+import GrafDelez from './graphs/delezRegije.js';
+import SpolRegije from './graphs/spolRegije.js';
 
 const useStyles = makeStyles((theme) => ({
     root: {

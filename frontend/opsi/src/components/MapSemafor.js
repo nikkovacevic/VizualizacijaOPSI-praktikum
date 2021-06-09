@@ -1,15 +1,20 @@
+//react
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+
+//map-gl
 import ReactMapGL, { Layer, Source } from 'react-map-gl';
 
-
+//styling
 import { makeStyles } from '@material-ui/core/styles';
 import Container from 'react-bootstrap/Container'
 import Paper from '@material-ui/core/Paper';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import './css/styles.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './css/styles.css';
 
-import { updatePercentiles } from  './samofor/racun_samoforja.js';
+
+//semafor
+import { updatePercentiles } from './samofor/racun_samoforja.js';
 import { dataLayer } from './samofor/barve_samoforja.js';
 import ControlPanel from './samofor/control-panel';
 
@@ -52,10 +57,6 @@ export default function MapSemafor() {
 
     const [year, setYear] = useState(2020);
     const [allData, setAllData] = useState(null);
-    
-
-    
-
 
     useEffect(() => {
         fetch(
@@ -65,45 +66,11 @@ export default function MapSemafor() {
             .then(json => setAllData(json));
     }, []);
 
-const data = useMemo(() => {
+    const data = useMemo(() => {
         return allData && updatePercentiles(allData, f => f.properties.barvanje[year]);
-      }, [allData, year]);
+    }, [allData, year]);
 
-    const layerStyle = {
-        id: 'data',
-        type: 'fill',
-    };
-
-    const [color, setColor] = useState('#ffffff')
-    
     const [hoverInfo, setHoverInfo] = useState(null);
-    const [clickInfo, setClickInfo] = useState(null);
-
-  
-    const onClick = useCallback(event => {
-        
-        const {
-            features,
-            srcEvent: { offsetX, offsetY }
-
-        } = event;
-
-        const clickedFeature = features && features[0];
-
-        
-        setClickInfo(
-            clickedFeature
-                ? {
-                    feature: clickedFeature,
-                    x: offsetX,
-                    y: offsetY
-                }
-                : null
-        );
-
-        console.log(clickInfo);
-
-    }, []);
 
     const onHover = useCallback(event => {
         const {
@@ -128,182 +95,66 @@ const data = useMemo(() => {
 
     }, []);
 
-   
-
     return (
-        
+
         <>
-         <div>
+            <div>
                 <main>
                     <div>
                         <Container maxWidth="lg" className={classes.container}>
-    
-                            {
-                               
-                            }
-    
                             <Row>
                                 <Col sm={12} lg={8}>
                                     <Paper className={classes.paper}>
-                                         <ReactMapGL
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
-                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
-                    onViewportChange={viewport => {
-                        setViewport(viewport);
-                    }}
-                    interactiveLayerIds={['data']}
-                    onHover={onHover}
-                    onClick={onClick}
-                >
+                                        <ReactMapGL
+                                            {...viewport}
+                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
+                                            onViewportChange={viewport => {
+                                                setViewport(viewport);
+                                            }}
+                                            interactiveLayerIds={['data']}
+                                            onHover={onHover}
+                                        >
 
-                    <Source id="sourcelayer" type="geojson" data={data}>
-                        <Layer {...dataLayer}  />
-                    </Source>
-                    {hoverInfo && (
-                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                                            <Source id="sourcelayer" type="geojson" data={data}>
+                                                <Layer {...dataLayer} />
+                                            </Source>
+                                            {hoverInfo && (
+                                                <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
 
-                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
-                            <hr></hr>
-                            {
-                             <div>{hoverInfo.feature.properties.value}</div>
-                            }
-                            
-                        </div>
-                    )}
-                </ReactMapGL>
+                                                    <div>{hoverInfo.feature.properties.SR_UIME}</div>
+                                                    <hr></hr>
+                                                    {
+                                                        <div>Indeks: {hoverInfo.feature.properties.value}</div>
+                                                    }
 
+                                                </div>
+                                            )}
+                                        </ReactMapGL>
 
                                     </Paper>
                                 </Col>
-    
+
                                 <Col sm={12} lg={4}>
                                     <Paper className={classes.paper}>
-                                    <ControlPanel year={year} onChange={value => setYear(value)} />
+                                        <ControlPanel year={year} onChange={value => setYear(value)} />
                                         <h3>Navodila</h3>
                                         <p>• Povlečite drsnik ter po letih spremljajte spreminjanje indeksa oziroma deleža prebivalstva, ki dela v regiji, kjer živi.</p>
-                                       
-                                       
-                                        <img src={require('../img/slider.png').default} />
-                                    
-                                       <p style={{textAlign: 'left'}}>⇧ Spreminjanje barve od najmanjšega do največjega indeksa.</p> 
-                                        <p style={{textAlign: 'left'}}>• Miško prislonite na regijo ter poglejte kakšen je delež prebivalstva, ki dela v regiji, kjer živi.</p> 
+
+                                        <img src={require('../img/slider.png').default} alt="slider" />
+
+                                        <p style={{ textAlign: 'left' }}>⇧ Spreminjanje barve od najmanjšega do največjega indeksa.</p>
+                                        <p style={{ textAlign: 'left' }}>• Miško prislonite na regijo ter poglejte kakšen je delež prebivalstva, ki dela v regiji, kjer živi.</p>
                                     </Paper>
                                 </Col>
                             </Row>
-    
+
                         </Container>
                     </div>
                 </main>
-            </div>        
+            </div>
 
         </>
 
-
     );
 }
-
-/*
- <div>
-                <main>
-                    <div>
-                        <Container maxWidth="lg" className={classes.container}>
-    
-                            {
-                                //true
-                            }
-    
-                            <Row>
-                                <Col sm={12} lg={8}>
-                                    <Paper className={classes.paper}>
-                                         <ReactMapGL
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
-                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
-                    onViewportChange={viewport => {
-                        setViewport(viewport);
-                    }}
-                    interactiveLayerIds={['data']}
-                    onHover={onHover}
-                    onClick={onClick}
-                >
-
-                    <Source id="sourcelayer" type="geojson" data={data}>
-                        <Layer {...dataLayer}  />
-                    </Source>
-                    {hoverInfo && (
-                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
-
-                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
-                            <hr></hr>
-                            {
-                             <div>{hoverInfo.feature.properties.value}</div>
-                            }
-                            
-                        </div>
-                    )}
-                </ReactMapGL>
-
-
-                                    </Paper>
-                                </Col>
-    
-                                <Col sm={12} lg={4}>
-                                    <Paper className={classes.paper}>
-                                        <h3>Navodila</h3>
-                                        <p>
-                                            Pred vami je interkativni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno regijo, samo pritisnite na njo in se vam bodo prikazali grafi.
-                                        </p>
-                                    </Paper>
-                                </Col>
-                            </Row>
-    
-                        </Container>
-                    </div>
-                </main>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
- <div>
-            <ControlPanel year={year} onChange={value => setYear(value)} />
-                <ReactMapGL
-                    {...viewport}
-                    mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
-                    mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
-                    onViewportChange={viewport => {
-                        setViewport(viewport);
-                    }}
-                    interactiveLayerIds={['data']}
-                    onHover={onHover}
-                    onClick={onClick}
-                >
-
-                    <Source id="sourcelayer" type="geojson" data={data}>
-                        <Layer {...dataLayer}  />
-                    </Source>
-                    {hoverInfo && (
-                        <div className="tooltip123123" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
-
-                            <div>{hoverInfo.feature.properties.SR_UIME}</div>
-                            <hr></hr>
-                            {
-                             <div>{hoverInfo.feature.properties.value}</div>
-                            }
-                            
-                        </div>
-                    )}
-                </ReactMapGL>
-                
-            </div>
-
-
-*/

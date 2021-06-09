@@ -1,13 +1,13 @@
+//react
 import React from 'react';
 
+//grafi
 import { XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { AreaChart, Area } from 'recharts';
 
 const toPercent = (decimal, fixed = 0) => `${(decimal * 100).toFixed(0)}%`;
-
 const getPercent = (value, total) => {
   const ratio = total > 0 ? value / total : 0;
-
   return toPercent(ratio, 2);
 };
 
@@ -32,58 +32,40 @@ const renderTooltipContent = (o) => {
 
 
 export default function spolRegije(props) {
-    //const classes = useStyles();
 
-    
-    
-    const data5 = require("../data/aktivno_regije.json");
-    
-    //console.log(data5[0].num);
-    const results = [];
-    //var results = [];
-    for ( var key in data5){
-        if(data5.hasOwnProperty(key) && data5[key]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key].SPOL === "Moški" && data5[key].LETO>2009){
-            for ( var key2 in data5){
-                if(data5.hasOwnProperty(key2) && data5[key2]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key2].SPOL === "Ženske" && data5[key2].LETO === data5[key].LETO){
-                //if(data5.hasOwnProperty(key) && data5[key].KAZALNIK === kaz && data5[key]["STATISTIČNA REGIJA"] === reg){
-                    results[key] = data5[key];
-                    
-                    results[key].zenske = data5[key2].num;
-                    
-                    
-                }
-            }
-           
-            
+  const data5 = require("../data/aktivno_regije.json");
+  const results = [];
+
+  for (var key in data5) {
+    if (data5.hasOwnProperty(key) && data5[key]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key].SPOL === "Moški" && data5[key].LETO > 2009) {
+      for (var key2 in data5) {
+        if (data5.hasOwnProperty(key2) && data5[key2]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija && data5[key2].SPOL === "Ženske" && data5[key2].LETO === data5[key].LETO) {
+          results[key] = data5[key];
+          results[key].zenske = data5[key2].num;
         }
-    }
-   
-    var filtered = results.filter(function (el){
-      return el != null;
-    })
-
-    for(var i = 0; i < results.length; i++){
-      var obj = results[i];
-      for(var prop in obj){
-          if(obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])){
-              obj[prop] = +obj[prop];   
-          }
       }
+    }
   }
-    
-    //console.log(results);
-    //console.log(filtered[1].num);
-    //console.log(filtered[1].num*2);
 
+  var filtered = results.filter(function (el) {
+    return el != null;
+  });
 
+  for (var i = 0; i < results.length; i++) {
+    var obj = results[i];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
+        obj[prop] = +obj[prop];
+      }
+    }
+  }
 
-    return (
-      <React.Fragment>     
-        
-        
-        <div>
+  return (
+    <React.Fragment>
+
+      <div>
         <h3>Graf primerjave aktivnosti med spoloma v regiji</h3>
-        
+
         <AreaChart
           width={500}
           height={400}
@@ -100,15 +82,14 @@ export default function spolRegije(props) {
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
           <Tooltip content={renderTooltipContent} />
-          <Area type="number" dataKey="num" name="Delež moških, ki so aktivni v regiji" stackId="1" stroke="#2b6acf" fill="#84a4d8"  />
+          <Area type="number" dataKey="num" name="Delež moških, ki so aktivni v regiji" stackId="1" stroke="#2b6acf" fill="#84a4d8" />
           <Area type="number" dataKey="zenske" name="Delež žensk, ki so aktivni v regiji" stackId="1" stroke="#b36710" fill="#d4ac7f" />
-          
-        </AreaChart>
-      
-            
-        </div>
-      </React.Fragment>
-    );
-  }
 
-  
+        </AreaChart>
+
+      </div>
+    </React.Fragment>
+  );
+}
+
+

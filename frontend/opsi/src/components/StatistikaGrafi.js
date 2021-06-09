@@ -1,24 +1,23 @@
+//react
 import React from 'react';
 
-import GrafRegijeStat from './graphs/grafRegijeStat.js'
-import GrafRegijePreb from './graphs/grafRegijePreb.js'
-import GrafObcineStat from './graphs/grafObcineStat.js'
-import GrafObcinePreb from './graphs/grafObcinePreb.js'
-import Accordion from 'react-bootstrap/Accordion'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
+//styling
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
+//grafi
+import GrafRegijeStat from './graphs/grafRegijeStat.js';
+import GrafRegijePreb from './graphs/grafRegijePreb.js';
+import GrafObcineStat from './graphs/grafObcineStat.js';
+import GrafObcinePreb from './graphs/grafObcinePreb.js';
 
 export default function Multigrafs() {
   
   return (
     <React.Fragment>
-     
-
-    
-
 
      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
   
@@ -113,7 +112,6 @@ export default function Multigrafs() {
     </Accordion.Collapse>
   </Card>
 </Accordion>
-
 
       </Card.Body>
     </Accordion.Collapse>
@@ -408,9 +406,6 @@ export default function Multigrafs() {
     </Accordion.Collapse>
   </Card>
 </Accordion>
-
-
-
 
 
   </Tab>
