@@ -82,7 +82,7 @@ export default function spolRegije(props) {
         
         
         <div>
-       
+        <h3>Graf primerjave aktivnosti med spoloma v regiji</h3>
         
         <AreaChart
           width={500}

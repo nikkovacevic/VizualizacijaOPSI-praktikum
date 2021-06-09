@@ -86,7 +86,7 @@ export default function SpolObcine(props) {
         
         <div>
        
-        
+        <h3>Graf primerjave aktivnosti med spoloma v občini</h3>
         <AreaChart
           width={500}
           height={400}

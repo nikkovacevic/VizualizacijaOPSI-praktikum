@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import '../css/styles.css'
 
 function ControlPanel(props) {
   const {year} = props;
@@ -14,6 +14,7 @@ function ControlPanel(props) {
       <label><b>Leto:{year}</b></label>
       <div key={'year'} className="input">
         <input
+        className="input"
           type="range"
           value={year}
           min={2009}

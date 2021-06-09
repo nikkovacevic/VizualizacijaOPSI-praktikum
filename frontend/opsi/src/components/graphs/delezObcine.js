@@ -84,7 +84,7 @@ export default function DelezObcine(props) {
         
         
         <div>
-       
+        <h3>Graf delavcev, ki odhajajo izven občine na delo</h3>
         
         <AreaChart
           width={500}

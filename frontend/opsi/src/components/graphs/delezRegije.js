@@ -74,7 +74,7 @@ export default function DelezRegije(props) {
         
         
         <div>
-       
+       <h3>Graf delavcev, ki odhajajo izven regije na delo</h3>
         
         <AreaChart
           width={500}
