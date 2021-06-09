@@ -77,7 +77,7 @@ export default function GrafObcine(props) {
         </LineChart>
 
       </div>
-      <p>Indeks predstavlja delež prebivalstva, ki dela v občini, kjer živi</p>
+      <p>Indeks predstavlja delež prebivalstva, ki dela v občini, kjer živi.</p>
     </React.Fragment>
   );
 }

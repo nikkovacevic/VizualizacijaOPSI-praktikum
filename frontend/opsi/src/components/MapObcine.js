@@ -171,7 +171,7 @@ export default function MapObcine() {
                                     <Paper className={classes.paper}>                                      
                                             <h3>Navodila</h3>
                                             <p>
-                                                Pred vami je interkativni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno regijo, samo pritisnite na njo in se vam bodo prikazali grafi.
+                                                Pred vami je interaktivni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno občino, samo pritisnite na njo in se vam bodo prikazali grafi.
                                             </p>                          
                                     </Paper>
                                 </Col>

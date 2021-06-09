@@ -67,7 +67,7 @@ export default function GrafRegije(props) {
           </LineChart>
             
         </div>
-            <p>Indeks predstavlja delež prebivalstva, ki dela v regiji, kjer živi</p>
+            <p>Indeks predstavlja delež prebivalstva, ki dela v regiji, kjer živi.</p>
 
       </React.Fragment>
     );
