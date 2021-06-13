@@ -1,26 +1,41 @@
-![opsi](https://gitlab.com/neuberg/opsi/-/blob/master/frontend/opsi/img/opsidark.png)
+![opsi](/frontend/opsi/img/opsidark.png)
 
-# Opis projekta
 
-Projekt nastaja v sklopu predmeta _Praktikum II_ na FERI-ju
 
-Vizualizacija in iskanje po zbirki "OPSi"
+# Vizualizacija "OPSI" podatkov
+
+## Opis projekta
     
-Projekt prikazuje delovne migracije v sloveniji glede na statistične regije
+Projekt je namenjen vizualizaciji podatkov o delovnih migracij v Sloveniji pridobljenih iz [Odprtih podaktkov Slovenije](https://podatki.gov.si/)
 
-#Prototip link
+Projekt nastaja v sklopu predmeta _Praktikum II_ na Fakulteti za elektrotehiko, računalništvo in informatiko FERI.
 
-https://pr.to/WKDB3O/
+## Tehnologije
 
-# Tehnologije
+- Front-end: React JS
+  - [react-map-gl](https://visgl.github.io/react-map-gl/)
+  - [mapbox-gl](https://www.mapbox.com/mapbox-gljs)
+  - [recharts](https://recharts.org/en-US/)
+- Upravljanje s podatki: Python
 
-- front-end: node v12.19.0, npm 6.14.8
-- back-end:
-- podatkovna baza:
+## Funkcionalnosti
 
-# Funkcionalnosti
+- Pregled spreminjanja indeksa delovnih migracij regij med leti 2009 in 2020 s pomočjo interaktivnega zemljevida 
 
-# Avtorji:
+- Pregled grafov indeksa migracij in števila delovnih migrantov, glede na regijo/občino
+
+- Pregled grafov indeksa migracij, primerjave aktivnosti med spoloma in grafov delavcev, ki delajo izven regije, kjer živijo, za posamzeno regijo s pomočjo interaktivnega zemljevida
+
+- Pregled grafov indeksa migracij, primerjave aktivnosti med spoloma in grafov delavcev, ki delajo izven regije, kjer živijo, za posamzeno občino s pomočjo interaktivnega zemljevida
+
+## Zaslonski posnetki
+
+
+## Namestitev
+
+
+
+## Avtorji:
 - Nik Kovačević
 - Aljaž Neuberg
 - Luka Ogrizek
