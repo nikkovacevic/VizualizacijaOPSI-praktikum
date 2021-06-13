@@ -113,11 +113,11 @@ export default function Dashboard() {
             </Grid>
 
             {/* Graf */}
-            <Grid item xs={12} md={8} lg={12}>
+            {/* <Grid item xs={12} md={8} lg={12}>
               <Paper className={fixedHeightPaper}>
                 <GrafSlo regija="SLOVENIJA"></GrafSlo>
               </Paper>
-            </Grid>
+            </Grid> */}
 
             {/* Multigraf*/}
             <Grid item xs={12}>

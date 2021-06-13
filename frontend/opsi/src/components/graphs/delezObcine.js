@@ -62,7 +62,7 @@ export default function DelezObcine(props) {
     <React.Fragment>
 
       <div>
-        <h3>Graf delavcev, ki odhajajo izven občine na delo</h3>
+        <h3>Graf delavcev, ki odhajajo na delo izven občine, kjer živijo</h3>
 
         <AreaChart
           width={500}
