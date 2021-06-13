@@ -1,4 +1,4 @@
-![opsi](/frontend/opsi/img/opsidark.png)
+![OPSI](logo.PNG)
 
 
 
@@ -30,6 +30,23 @@ Projekt nastaja v sklopu predmeta _Praktikum II_ na Fakulteti za elektrotehiko, 
 
 ## Zaslonski posnetki
 
+Homepage
+![Homepage](screenshots/home.PNG)
+
+----
+
+Stran s statistiko
+![Stran s statistiko](screenshots/statistika.PNG)
+
+----
+
+Stran z regijami
+![Stran z regijami](screenshots/regija.PNG)
+
+----
+
+[Stran z občinami
+![Stran z občinami](screenshots/obcina.PNG)
 
 ## Namestitev
 
