@@ -7,7 +7,7 @@ import { LineChart, Line } from 'recharts';
 
 export default function GrafSlo(props) {
 
-  const data5 = require("../data/migracije_regije.json");
+  const data5 = require("../data/aktivno_regije.json");
   const results = [];
 
   for (var key in data5) {
@@ -18,7 +18,7 @@ export default function GrafSlo(props) {
       );
     }
     else {
-      if (data5.hasOwnProperty(key) && data5[key].KAZALNIK === "Indeks delovne migracije" && data5[key]["STATISTIČNA REGIJA"] === props.regija) {
+      if (data5.hasOwnProperty(key) && data5[key].SPOL === "Spol - SKUPAJ" && data5[key]["KOHEZIJSKA / STATISTIČNA REGIJA"] === props.regija) {
         results[key] = data5[key];
       }
     }
@@ -27,7 +27,16 @@ export default function GrafSlo(props) {
     return el != null;
   });
 
-  var ime = filtered[1].KAZALNIK;
+ 
+
+  for (var i = 0; i < results.length; i++) {
+    var obj = results[i];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
+        obj[prop] = +obj[prop];
+      }
+    }
+  }
 
   return (
     <React.Fragment>
@@ -52,7 +61,7 @@ export default function GrafSlo(props) {
           <YAxis domain={("dataMin", "dataMax")} type="number" />
           <Tooltip />
           <Legend />
-          <Line dataKey="num" name={ime} stroke="#8884d8" />
+          <Line dataKey="num" name="Število delovno aktivnih prebivalcev"stroke="#8884d8" />
 
         </LineChart>
 
