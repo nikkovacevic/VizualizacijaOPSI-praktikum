@@ -66,7 +66,10 @@ export default function GrafObcine(props) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis domain={("dataMin", "dataMax")} type="number" tickFormatter={toPercent}/>
           <YAxis dataKey="LETO" type="category" />
-          <Tooltip formatter={(value) => value.toFixed(1)} />
+          <Tooltip formatter={(value) =>
+          (!isNaN(value)) ?
+            value.toFixed(1) : "Ne obstaja"
+            } />
           <Legend />
           <Line dataKey="num" name={"Indeks"} stroke="#5A7362"/>
 

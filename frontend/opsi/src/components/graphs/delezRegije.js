@@ -22,7 +22,9 @@ const renderTooltipContent = (o) => {
       <ul className="list">
         {payload.map((entry, index) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${entry.value.toFixed(1)}(${getPercent(entry.value, total)})`}
+            {`${entry.name}: ${(!isNaN(entry.value)) ?
+            entry.value.toFixed(1) : "Ne obstaja"
+            } (${getPercent(entry.value, total)})`}
           </li>
         ))}
       </ul>
