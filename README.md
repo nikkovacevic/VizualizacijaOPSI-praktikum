@@ -54,7 +54,7 @@ Stran z regijami
 
 ----
 
-[Stran z občinami
+Stran z občinami
 ![Stran z občinami](screenshots/obcina.PNG)
 
 ## Namestitev
