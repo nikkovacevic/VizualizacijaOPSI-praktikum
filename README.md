@@ -10,13 +10,22 @@ Projekt je namenjen vizualizaciji podatkov o delovnih migracij v Sloveniji prido
 
 Projekt nastaja v sklopu predmeta _Praktikum II_ na Fakulteti za elektrotehiko, računalništvo in informatiko FERI.
 
+## Besednjak
+
+**Indeks delovnih migracij** = razmerje med številom delovno aktivnih
+prebivalcev (brez kmetov) v določeni teritorialni enoti delovnega mesta in številom
+delovno aktivnih prebivalcev (brez kmetov) v teritorialni enoti prebivališča pomnoženo
+s 100.
+
+**Migranti** = delovno aktivno prebivalstvo, ki dela zunaj regije svojega prebivališča 
+
 ## Tehnologije
 
-- Front-end: React JS ^17.0.2
+- **Front-end**: React JS ^17.0.2
   - [react-map-gl ^6.1.15](https://visgl.github.io/react-map-gl/)
   - [mapbox-gl ^2.3.0](https://www.mapbox.com/mapbox-gljs)
   - [recharts ^2.0.9](https://recharts.org/en-US/)
-- Upravljanje s podatki: Python
+- **Upravljanje s podatki**: Python
 
 ## Funkcionalnosti
 
