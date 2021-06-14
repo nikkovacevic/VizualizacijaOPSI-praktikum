@@ -22,7 +22,7 @@ const renderTooltipContent = (o) => {
       <ul className="list">
         {payload.map((entry, index) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${entry.value}(${getPercent(entry.value, total)})`}
+            {`${entry.name}: ${entry.value.toFixed(1)}(${getPercent(entry.value, total)})`}
           </li>
         ))}
       </ul>

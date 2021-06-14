@@ -35,7 +35,7 @@ const Home = () => {
             <Card.Body>
               <Card.Title>Zemljevidi migracij</Card.Title>
               <Card.Text>
-                Preglejte statistiko delovnih migracij s pomočjo interaktivnega zemljevida. Možnost je izbiranja med karto z statističnimi regijami in karto občin v Sloveniji.
+                Preglejte statistiko delovnih migracij s pomočjo interaktivnega zemljevida. Možnost je izbiranja med karto statističnih regij in karto občin v Sloveniji.
       </Card.Text>
             </Card.Body>
             <Card.Footer>
