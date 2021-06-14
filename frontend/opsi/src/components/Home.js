@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import './css/styles.css';
+import Fade from 'react-reveal/Fade';
+import Flip from 'react-reveal/Flip';
 
 const Home = () => {
 
@@ -15,6 +17,7 @@ const Home = () => {
 
     <Container >
       <div>
+      <Fade left>
         <Jumbotron className="graid" >
 
           <h2 style={{ color: "black" }}>Dobrodošli na spletni strani z evidenco delovnih migracij!</h2>
@@ -27,8 +30,10 @@ const Home = () => {
           </p>
 
         </Jumbotron>
+        </Fade>
       </div>
       <div>
+      <Fade right>
         <CardDeck>
           <Card>
             <Card.Img variant="top" src={require('../img/map.svg').default} alt='img1' />
@@ -73,6 +78,7 @@ const Home = () => {
             </Card.Footer>
           </Card>
         </CardDeck>
+        </Fade>
       </div>
 
     </Container>

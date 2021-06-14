@@ -11,7 +11,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Paper from '@material-ui/core/Paper';
 import './css/styles.css';
-
+import Slide from 'react-reveal/Slide';
+import Rotate from 'react-reveal/Rotate';
 //grafi
 import GrafIndeks from './graphs/grafObcine.js';
 import GrafDelez from './graphs/delezObcine.js';
@@ -141,7 +142,7 @@ export default function MapObcine() {
                             <Row>
                                 <Col sm={12} lg={8}>
                                     <Paper className={classes.paper}>
-    
+                                    <Slide left>
                                         <ReactMapGL
                                             {...viewport}
                                             mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
@@ -163,17 +164,19 @@ export default function MapObcine() {
                                                 </div>
                                             )}
                                         </ReactMapGL>
-    
+                                        </Slide>
                                     </Paper>
                                 </Col>
     
                                 <Col sm={12} lg={4}>
+                                <Slide right>
                                     <Paper className={classes.paper}>                                      
                                             <h3>Navodila</h3>
                                             <p>
                                                 Pred vami je interaktivni zemljevid. Če si želite podrobneje ogledati statistiko migracij za posamezno občino, samo pritisnite na njo in se vam bodo prikazali grafi.
                                             </p>                          
                                     </Paper>
+                                    </Slide>
                                 </Col>
                             </Row>
 
