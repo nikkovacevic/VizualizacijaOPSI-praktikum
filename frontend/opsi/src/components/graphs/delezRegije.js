@@ -22,7 +22,7 @@ const renderTooltipContent = (o) => {
       <ul className="list">
         {payload.map((entry, index) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${entry.value}(${getPercent(entry.value, total)})`}
+            {`${entry.name}: ${entry.value.toFixed(1)}(${getPercent(entry.value, total)})`}
           </li>
         ))}
       </ul>
@@ -49,7 +49,7 @@ export default function DelezRegije(props) {
   return (
     <React.Fragment>
       <div>
-        <h3>Graf delavcev, ki odhajajo izven regije na delo</h3>
+        <h3>Graf delavcev, ki odhajajo na delo izven regije, kjer živijo</h3>
 
         <AreaChart
           width={500}

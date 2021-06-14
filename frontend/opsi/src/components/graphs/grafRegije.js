@@ -58,7 +58,10 @@ export default function GrafRegije(props) {
         </LineChart>
 
       </div>
-      <p>Indeks predstavlja delež prebivalstva, ki dela v regiji, kjer živi.</p>
+      <p>Indeks predstavlja razmerje med številom delovno aktivnih
+prebivalcev v določeni regiji delovnega mesta in številom
+delovno aktivnih prebivalcev v regiji prebivališča pomnoženo
+s 100.</p>
 
     </React.Fragment>
   );

@@ -20,22 +20,21 @@ const NavbarNew = () => {
           alt="React Bootstrap logo"
         />
       </Navbar.Brand>
-      <Navbar.Brand href="/">Delovne migracije</Navbar.Brand>
+      <Navbar.Brand href="/">Vizualizacija OPSI</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
 
-          <Nav.Link href="/statistika">Statistika</Nav.Link>
+          
+        </Nav>
+        <Nav>
+        <Nav.Link href="/statistika">Statistika</Nav.Link>
           <NavDropdown title="Zemljevidi" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/regije">Statistične regije</NavDropdown.Item>
             <NavDropdown.Item href="/obcine">Občine</NavDropdown.Item>
 
           </NavDropdown>
-        </Nav>
-        <Nav>
           <Nav.Link href="/onas">O nas</Nav.Link>
-          <Nav.Link href="/oprojektu">O projektu</Nav.Link>
-
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -20,13 +20,13 @@ const Home = () => {
       <Fade left>
         <Jumbotron className="graid" >
 
-          <h2 style={{ color: "black" }}>Dobrodošli na spletni strani z evidenco delovnih migracij!</h2>
+          <h2 style={{ color: "black" }}>Dobrodošli na spletni strani Vizualizacija OPSI!</h2>
           <p style={{ color: "black" }}>
-            Stran je namenjena vizualizaciji podatkov o delovnih migracijah med leti 2000 in 2020.
+            Stran je namenjena vizualizaciji podatkov o delovnih migracijah pridobljenih s strani OPSI.
         </p>
           <p>
 
-            <Button variant="info" href="/oprojektu" >O projektu</Button>
+            <Button variant="info" href="/onas" >O nas</Button>
           </p>
 
         </Jumbotron>
@@ -40,7 +40,7 @@ const Home = () => {
             <Card.Body>
               <Card.Title>Zemljevidi migracij</Card.Title>
               <Card.Text>
-                Preglejte statistiko delovnih migracij s pomočjo interaktivnega zemljevida. Možnost je izbiranja med karto z statističnimi regijami in karto občin v Sloveniji.
+                Preglejte statistiko delovnih migracij s pomočjo interaktivnega zemljevida. Možnost je izbiranja med karto statističnih regij in karto občin v Sloveniji.
       </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -68,7 +68,7 @@ const Home = () => {
             <Card.Body>
               <Card.Title>Odprti podatki Slovenije</Card.Title>
               <Card.Text>
-                Podatki na naši strani so bili črpani s strani OPSI. Preglejt stran:
+                Podatki na naši strani so bili črpani s strani OPSI. Preglejte stran:
       </Card.Text>
             </Card.Body>
             <Card.Footer>

@@ -21,7 +21,7 @@ const renderTooltipContent = (o) => {
       <ul className="list">
         {payload.map((entry, index) => (
           <li key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${entry.value}(${getPercent(entry.value, total)})`}
+            {`${entry.name}: ${entry.value.toFixed(1)}(${getPercent(entry.value, total)})`}
           </li>
         ))}
       </ul>
@@ -62,7 +62,7 @@ export default function DelezObcine(props) {
     <React.Fragment>
 
       <div>
-        <h3>Graf delavcev, ki odhajajo izven občine na delo</h3>
+        <h3>Graf delavcev, ki odhajajo na delo izven občine, kjer živijo</h3>
 
         <AreaChart
           width={500}
@@ -79,7 +79,7 @@ export default function DelezObcine(props) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="LETO" />
           <YAxis tickFormatter={toPercent} />
-          <Tooltip content={renderTooltipContent} />
+          <Tooltip content={renderTooltipContent}/>
           <Area type="monotone" dataKey="num" name="Delavci ki delajo zunaj občine prebivališča" stackId="1" stroke="#2b6acf" fill="#84a4d8" />
           <Area type="monotone" dataKey="znotraj" name="Delavci ki delajo znotraj občine prebivališča" stackId="1" stroke="#b36710" fill="#d4ac7f" />
 

@@ -6,7 +6,6 @@ function ControlPanel(props) {
 
   return (
     <div className="control-panel">
-      <hr />
       <label><b>Leto:{year}</b></label>
       <div key={'year'} className="input">
         <input

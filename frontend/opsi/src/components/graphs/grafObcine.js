@@ -5,6 +5,10 @@ import React from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { LineChart, Line } from 'recharts';
 
+
+const toPercent = (decimal) => `${decimal.toFixed(1)}`;
+
+
 export default function GrafObcine(props) {
 
   const data5 = require("../data/migracije_obcine.json");
@@ -60,16 +64,19 @@ export default function GrafObcine(props) {
         >
 
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis domain={("dataMin", "dataMax")} type="number" />
+          <XAxis domain={("dataMin", "dataMax")} type="number" tickFormatter={toPercent}/>
           <YAxis dataKey="LETO" type="category" />
-          <Tooltip />
+          <Tooltip formatter={(value) => value.toFixed(1)} />
           <Legend />
-          <Line dataKey="num" name={"Indeks"} stroke="#5A7362" />
+          <Line dataKey="num" name={"Indeks"} stroke="#5A7362"/>
 
         </LineChart>
 
       </div>
-      <p>Indeks predstavlja delež prebivalstva, ki dela v občini, kjer živi.</p>
+      <p>Indeks predstavlja razmerje med številom delovno aktivnih
+prebivalcev v določeni občini delovnega mesta in številom
+delovno aktivnih prebivalcev v občini prebivališča pomnoženo
+s 100.</p>
     </React.Fragment>
   );
 }

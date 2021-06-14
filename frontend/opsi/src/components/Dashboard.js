@@ -115,6 +115,7 @@ export default function Dashboard() {
             {/* Graf */}
             <Grid item xs={12} md={8} lg={12}>
               <Paper className={fixedHeightPaper}>
+                <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
                 <GrafSlo regija="SLOVENIJA"></GrafSlo>
               </Paper>
             </Grid>
