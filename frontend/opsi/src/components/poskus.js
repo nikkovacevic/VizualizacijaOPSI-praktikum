@@ -17,7 +17,7 @@ import Rotate from 'react-reveal/Rotate';
 //semafor
 import { updatePercentiles } from './samofor/racun_samoforja.js';
 import { dataLayer } from './samofor/barve_samoforja.js';
-import ControlPanelObcine from './samofor/control-panel-obcine.js';
+import ControlPanel from './samofor/control-panel.js';
 
 
 
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MapObcine() {
 
-    const [navodila, setNavodila] = React.useState(true);
+   
 
     const classes = useStyles();
 
@@ -62,19 +62,19 @@ export default function MapObcine() {
     });
 
     const [allData, setAllData] = useState(null);
-    const [year, setYear] = useState(2020);
+    const [year1, setYear] = useState(2005);
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/Aljaz672/Test/main/obcine_semafor.geojson'
+            'https://raw.githubusercontent.com/Aljaz672/Test/main/semafor_obcine.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));
     }, []);
 
     const data = useMemo(() => {
-        return allData && updatePercentiles(allData, f => f.properties.barvanje[year]);
-    }, [allData, year]);
+        return allData && updatePercentiles(allData, f => f.properties.barvanje[year1]);
+    }, [allData, year1]);
 
     const layerStyle = {
         id: 'data',
@@ -112,6 +112,7 @@ export default function MapObcine() {
         return (
             <>
             <div>
+            <ControlPanel year={year1} onChange={value => setYear(value)} />
                 <main>
                     <div>
                         <Container maxWidth="lg" className={classes.container}>
@@ -150,7 +151,9 @@ export default function MapObcine() {
 
                                 <Col sm={12} lg={4}>
                                     <Paper className={classes.paper}>
-                                        <ControlPanelObcine year={year} onChange={value => setYear(value)} />
+                                       
+
+
                                         <h3>Navodila</h3>
                                         <p>Povlečite drsnik ter po letih spremljajte spreminjanje indeksa oziroma deleža prebivalstva, ki dela v regiji, kjer živi.</p>
 

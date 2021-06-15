@@ -50,3 +50,9 @@
   pointer-events: none;
   border-radius: 5px;
 }
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}

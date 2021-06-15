@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import './css/styles.css';
 import Fade from 'react-reveal/Fade';
-import Flip from 'react-reveal/Flip';
+
 
 const Home = () => {
 
@@ -81,8 +81,13 @@ const Home = () => {
         </Fade>
       </div>
 
+
+
+
     </Container>
 
+    
+  
   );
 };
 
