@@ -61,7 +61,7 @@ export default function GrafSlo(props) {
           <YAxis domain={("dataMin", "dataMax")} type="number" />
           <Tooltip />
           <Legend />
-          <Line dataKey="num" name="Število delovno aktivnih prebivalcev"stroke="#8884d8" />
+          <Line dataKey="num" name="Število delovno aktivnih prebivalcev" stroke="#5A7362" />
 
         </LineChart>
 
