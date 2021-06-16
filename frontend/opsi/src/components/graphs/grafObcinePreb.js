@@ -7,7 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 export default function GrafObcinePreb(props) {
 
   const data5 = require("../data/migracije_obcine.json");
-  const data6 = require("../data/delovno_aktivno_leto.json");
+  const data6 = require("../data/delovno_aktivno_leto_novi.json");
   const results = [];
 
   for (var key in data5) {
