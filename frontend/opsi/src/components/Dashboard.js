@@ -13,8 +13,8 @@ import Tab from 'react-bootstrap/Tab'
 //grafi
 import Multigrafs from './StatistikaGrafi';
 import GrafSlo from './graphs/grafSlo';
-import MapSemafor from './MapSemafor';
-import MapObcineSamofor from './MapObcineSamofor';
+import MapSemafor from './samofor/MapSemafor';
+import MapObcineSamofor from './samofor/MapObcineSamofor';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
