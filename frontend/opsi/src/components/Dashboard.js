@@ -1,5 +1,5 @@
 //react
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 
 //styling
 import clsx from 'clsx';
@@ -98,49 +98,64 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
 
+  const [temp, setTemp] = useState(1);
+
+  const handleSelect = useCallback(
+    (key) => {
+      console.log("key je " + key);
+        
+      setTemp(key);
+
+    },
+    [],
+  )
+
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  return (
-    <div>
+  
+    return (
+<div>
 
-      <main>
+<main>
 
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Semafor */}
-            <Grid item xs={12} md={8} lg={12}>
-              <Paper className={classes.paper}>
-                <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                  <Tab eventKey="Semafor regije" title="Semafor regije">
-                  <MapSemafor />
-                  </Tab>
-                  <Tab eventKey="Semafor občine" title="Semafor občine">
-                  <MapObcineSamofor />
-                  </Tab>
-                  </Tabs>
-                  
-              </Paper>
-            </Grid>
+  <Container maxWidth="lg" className={classes.container}>
+    <Grid container spacing={3}>
+      {/* Semafor */}
+      <Grid item xs={12} md={8} lg={12}>
+        <Paper className={classes.paper}>
+          <Tabs defaultActiveKey="1" id="uncontrolled-tab-example" onSelect={handleSelect}>
+            <Tab eventKey="1" title="Semafor regije">
+            <MapSemafor />
+            </Tab>
+            <Tab eventKey="2" title="Semafor občine">
+            <MapObcineSamofor />
+            </Tab>
+            </Tabs>
+            
+        </Paper>
+      </Grid>
 
-              {/* Graf */}
-              <Grid item xs={12} md={8} lg={12}>
-                <Paper className={fixedHeightPaper}>
-                  <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
-                  <GrafSlo regija="SLOVENIJA"></GrafSlo>
-                </Paper>
-              </Grid>
+        {/* Graf */}
+        <Grid item xs={12} md={8} lg={12}>
+          <Paper className={fixedHeightPaper}>
+            <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
+            <GrafSlo regija="SLOVENIJA"></GrafSlo>
+          </Paper>
+        </Grid>
 
-              {/* Multigraf*/}
-              <Grid item xs={12}>
-                <Paper className={classes.paper}>
-                  <Multigrafs />
-                </Paper>
-              </Grid>
-            </Grid>
+        {/* Multigraf*/}
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Multigrafs  val={temp}/>
+          </Paper>
+        </Grid>
+      </Grid>
 
-        </Container>
-      </main>
-    </div>
-      );
+  </Container>
+</main>
+</div>
+    );
+  
+  
 }

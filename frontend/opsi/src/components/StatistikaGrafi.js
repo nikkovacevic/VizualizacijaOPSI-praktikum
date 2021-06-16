@@ -14,14 +14,16 @@ import GrafRegijePreb from './graphs/grafRegijePreb.js';
 import GrafObcineStat from './graphs/grafObcineStat.js';
 import GrafObcinePreb from './graphs/grafObcinePreb.js';
 
-export default function Multigrafs() {
+export default function Multigrafs(props) {
+
+  console.log(props.val);
   
   return (
     <React.Fragment>
       <h3>Grafi indeksa delovnih migracij in števila migrantov</h3>
-     <Tabs defaultActiveKey="Regije" id="uncontrolled-tab-example">
+     <Tabs activeKey={props.val} id="uncontrolled-tab-example">
   
-  <Tab eventKey="Regije" title="Regije">
+  <Tab eventKey="1" title="Regije">
 
   <Accordion defaultActiveKey="100">
   <Card>
@@ -214,7 +216,7 @@ export default function Multigrafs() {
 
   </Tab>
 
-  <Tab eventKey="Občine" title="Občine">
+  <Tab eventKey="2" title="Občine">
     
 
   <Accordion defaultActiveKey="100">

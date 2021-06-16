@@ -91,8 +91,6 @@ export default function MapSemafor() {
                 : null
         );
 
-        console.log(hoveredFeature);
-
     }, []);
 
     return (
