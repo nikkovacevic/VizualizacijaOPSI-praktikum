@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 //grafi
 import Multigrafs from './StatistikaGrafi';
@@ -108,28 +110,36 @@ export default function Dashboard() {
             {/* Semafor */}
             <Grid item xs={12} md={8} lg={12}>
               <Paper className={classes.paper}>
-                <MapSemafor />
+                <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                  <Tab eventKey="Semafor regije" title="Semafor regije">
+                  <MapSemafor />
+                  </Tab>
+                  <Tab eventKey="Semafor občine" title="Semafor občine">
+                    
+                  </Tab>
+                  </Tabs>
+                  
               </Paper>
             </Grid>
 
-            {/* Graf */}
-            <Grid item xs={12} md={8} lg={12}>
-              <Paper className={fixedHeightPaper}>
-                <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
-                <GrafSlo regija="SLOVENIJA"></GrafSlo>
-              </Paper>
-            </Grid>
+              {/* Graf */}
+              <Grid item xs={12} md={8} lg={12}>
+                <Paper className={fixedHeightPaper}>
+                  <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
+                  <GrafSlo regija="SLOVENIJA"></GrafSlo>
+                </Paper>
+              </Grid>
 
-            {/* Multigraf*/}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Multigrafs />
-              </Paper>
+              {/* Multigraf*/}
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <Multigrafs />
+                </Paper>
+              </Grid>
             </Grid>
-          </Grid>
 
         </Container>
       </main>
     </div>
-  );
+      );
 }
