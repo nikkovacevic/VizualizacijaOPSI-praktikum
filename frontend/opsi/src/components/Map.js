@@ -148,7 +148,7 @@ export default function MapRegije() {
                                     <Slide left>
                                         <ReactMapGL
                                             {...viewport}
-                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
                                             mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
                                             onViewportChange={viewport => {
                                                 setViewport(viewport);
@@ -204,7 +204,7 @@ export default function MapRegije() {
                                     <Paper className={classes.paper}>
                                         <ReactMapGL
                                             {...viewport}
-                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
                                             mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
                                             onViewportChange={viewport => {
                                                 setViewport(viewport);
