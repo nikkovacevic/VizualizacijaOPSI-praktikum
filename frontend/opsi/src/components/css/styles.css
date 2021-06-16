@@ -52,5 +52,19 @@ width: 80px;
 
 }
 
+.div-kartice{
+  align-content: center;
+  vertical-align: middle;
+}
+
+.p-cards{
+  display: flex;
+  vertical-align: middle;
+  margin-top: 0.3cm;
+  
+}
+.avatarcek{
+  vertical-align:middle;
+}
 
 
