@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import Paper from '@material-ui/core/Paper';
 import './css/styles.css';
 import Slide from 'react-reveal/Slide';
-import Rotate from 'react-reveal/Rotate';
+
 //grafi
 import GrafIndeks from './graphs/grafObcine.js';
 import GrafDelez from './graphs/delezObcine.js';
@@ -133,7 +133,7 @@ export default function MapObcine() {
             <div>
                 <main>
                     <div>
-                        <Container maxWidth="lg" className={classes.container}>
+                        <Container maxwidth="lg" className={classes.container}>
     
                             {
                                 //true
@@ -190,7 +190,7 @@ export default function MapObcine() {
             <div>
                 <main>
                     <div>
-                        <Container maxWidth="lg" className={classes.container}>
+                        <Container maxwidth="lg" className={classes.container}>
     
                             <Row>
                                 <Col sm={12} lg={8}>

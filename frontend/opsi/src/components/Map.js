@@ -103,9 +103,6 @@ export default function MapRegije() {
 
         setNavodila(false);
 
-        //console.log(navodila);
-        //console.log(clickInfo);
-
     }, []);
 
     const onHover = useCallback(event => {
@@ -127,8 +124,6 @@ export default function MapRegije() {
                 : null
         );
 
-        //console.log(hoveredFeature);
-
     }, []);
 
     if(navodila || clickInfo===null) {
@@ -136,7 +131,7 @@ export default function MapRegije() {
             <div>
                 <main>
                     <div>
-                        <Container maxWidth="lg" className={classes.container}>
+                        <Container maxwidth="lg" className={classes.container}>
     
                             {
                                 //true
@@ -193,7 +188,7 @@ export default function MapRegije() {
             <div>
                 <main>
                     <div>
-                        <Container maxWidth="lg" className={classes.container}>
+                        <Container maxwidth="lg" className={classes.container}>
 
                             {
                             //false
