@@ -19,7 +19,7 @@ function Footer() {
         <Container fluid>
           <Row >
             <Col> 
-            <p pb={5}>
+            <div className="div-text">
               <Typography variant="body2" color="textSecondary" align="center">
                 {'Copyright © '}
                 <Link color="inherit" href="https://material-ui.com/">
@@ -28,7 +28,7 @@ function Footer() {
                 {new Date().getFullYear()}
                 {'.'}
               </Typography>
-              </p>
+              </div>
             </Col>
           </Row>
 
