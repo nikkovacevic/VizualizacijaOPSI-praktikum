@@ -9,24 +9,27 @@ import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import { palette } from '@material-ui/system';
 import './css/styles.css';
 
 function Footer() {
   return (
     <div className="div-footer">
 
-      <Box pt={2} pb={2} bgcolor="text.secondary">
+      <Box pt={2} pb={2} bgcolor="#d6d6d6">
         <Container fluid>
-          <Row>
-            <Col>
+          <Row >
+            <Col> 
+            <p pb={5}>
               <Typography variant="body2" color="textSecondary" align="center">
                 {'Copyright © '}
                 <Link color="inherit" href="https://material-ui.com/">
-                  Vizualizacija-OPSI
+                  Vizualizacija OPSI
                 </Link>{' '}
                 {new Date().getFullYear()}
                 {'.'}
               </Typography>
+              </p>
             </Col>
           </Row>
 
