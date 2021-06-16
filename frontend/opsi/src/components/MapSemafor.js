@@ -99,7 +99,7 @@ export default function MapSemafor() {
             <div>
                 <main>
                     <div>
-                        <Container maxWidth="lg" className={classes.container}>
+                        <Container maxwidth="lg" className={classes.container}>
                             <Row>
                                 <Col sm={12} lg={8}>
                                     <Paper className={classes.paper}>

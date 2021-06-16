@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image'
 import './css/styles.css';
 import Card from 'react-bootstrap/Card'
-import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 
@@ -25,7 +24,7 @@ const About = () => {
       </p>
       <br/>
       <h3>Uporabljene tehnologije</h3>
-      <p>
+      <div>
       <li>Front-end: React JS verzija:17.0.2  <Image src={require('../img/react-logo.svg').default} rounded className="photo-react"/>
     <ul>
       <li>react-map-gl verzija:6.1.15</li>
@@ -42,7 +41,7 @@ const About = () => {
 
 
   </p>
-    </p>
+    </div>
     <Card>
   <Card.Header>  <Avatar alt="Nik Kovačević" src={require('../img/nik-pfp.jpg').default} /> <p style={{verticalAlign:"left"}}>Nik Kovačević</p>
    </Card.Header>

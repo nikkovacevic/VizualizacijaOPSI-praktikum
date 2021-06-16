@@ -1,5 +1,5 @@
 //react
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 
 //styling
 import clsx from 'clsx';
@@ -102,8 +102,7 @@ export default function Dashboard() {
 
   const handleSelect = useCallback(
     (key) => {
-      console.log("key je " + key);
-        
+
       setTemp(key);
 
     },
@@ -113,49 +112,49 @@ export default function Dashboard() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  
-    return (
-<div>
 
-<main>
+  return (
+    <div>
 
-  <Container maxWidth="lg" className={classes.container}>
-    <Grid container spacing={3}>
-      {/* Semafor */}
-      <Grid item xs={12} md={8} lg={12}>
-        <Paper className={classes.paper}>
-          <Tabs defaultActiveKey="1" id="uncontrolled-tab-example" onSelect={handleSelect}>
-            <Tab eventKey="1" title="Semafor regije">
-            <MapSemafor />
-            </Tab>
-            <Tab eventKey="2" title="Semafor občine">
-            <MapObcineSamofor />
-            </Tab>
-            </Tabs>
-            
-        </Paper>
-      </Grid>
+      <main>
 
-        {/* Graf */}
-        <Grid item xs={12} md={8} lg={12}>
-          <Paper className={fixedHeightPaper}>
-            <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
-            <GrafSlo regija="SLOVENIJA"></GrafSlo>
-          </Paper>
-        </Grid>
+        <Container maxwidth="lg" className={classes.container}>
+          <Grid container spacing={3}>
+            {/* Semafor */}
+            <Grid item xs={12} md={8} lg={12}>
+              <Paper className={classes.paper}>
+                <Tabs defaultActiveKey="1" id="uncontrolled-tab-example" onSelect={handleSelect}>
+                  <Tab eventKey="1" title="Semafor regije">
+                    <MapSemafor />
+                  </Tab>
+                  <Tab eventKey="2" title="Semafor občine">
+                    <MapObcineSamofor />
+                  </Tab>
+                </Tabs>
 
-        {/* Multigraf*/}
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Multigrafs  val={temp}/>
-          </Paper>
-        </Grid>
-      </Grid>
+              </Paper>
+            </Grid>
 
-  </Container>
-</main>
-</div>
-    );
-  
-  
+            {/* Graf */}
+            <Grid item xs={12} md={8} lg={12}>
+              <Paper className={fixedHeightPaper}>
+                <h3>Število delovno aktivnih prebivalcev v Sloveniji</h3>
+                <GrafSlo regija="SLOVENIJA"></GrafSlo>
+              </Paper>
+            </Grid>
+
+            {/* Multigraf*/}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Multigrafs val={temp} />
+              </Paper>
+            </Grid>
+          </Grid>
+
+        </Container>
+      </main>
+    </div>
+  );
+
+
 }
