@@ -137,10 +137,10 @@ export default function MapSemafor() {
 
                                 <Col sm={12} lg={4}>
                                     <Paper className={classes.paper}>
-                                        <ControlPanel year={year} onChange={value => setYear(value)} />
+                                        
                                         <h3>Navodila</h3>
                                         <p>Povlečite drsnik ter po letih spremljajte spreminjanje indeksa oziroma deleža prebivalstva, ki dela v regiji, kjer živi.</p>
-
+                                        <ControlPanel year={year} onChange={value => setYear(value)} />
                                         <img src={require('../img/slider.png').default} alt="slider" />
 
                                         <p style={{ textAlign: 'left' }}>⇧ Spreminjanje barve od najmanjšega do največjega indeksa.</p>

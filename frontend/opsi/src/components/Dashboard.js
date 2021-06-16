@@ -14,6 +14,7 @@ import Tab from 'react-bootstrap/Tab'
 import Multigrafs from './StatistikaGrafi';
 import GrafSlo from './graphs/grafSlo';
 import MapSemafor from './MapSemafor';
+import MapObcineSamofor from './MapObcineSamofor';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -115,7 +116,7 @@ export default function Dashboard() {
                   <MapSemafor />
                   </Tab>
                   <Tab eventKey="Semafor občine" title="Semafor občine">
-                    
+                  <MapObcineSamofor />
                   </Tab>
                   </Tabs>
                   

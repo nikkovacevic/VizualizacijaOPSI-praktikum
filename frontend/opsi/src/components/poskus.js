@@ -66,7 +66,7 @@ export default function MapObcine() {
 
     useEffect(() => {
         fetch(
-            'https://raw.githubusercontent.com/Aljaz672/Test/main/semafor_obcine.geojson'
+            'https://raw.githubusercontent.com/Aljaz672/Test/main/jsonminifier.geojson'
         )
             .then(resp => resp.json())
             .then(json => setAllData(json));
@@ -112,7 +112,7 @@ export default function MapObcine() {
         return (
             <>
             <div>
-            <ControlPanel year={year1} onChange={value => setYear(value)} />
+            
                 <main>
                     <div>
                         <Container maxWidth="lg" className={classes.container}>
@@ -121,7 +121,7 @@ export default function MapObcine() {
                                     <Paper className={classes.paper}>
                                         <ReactMapGL
                                             {...viewport}
-                                            mapboxApiAccessToken={"pk.eyJ1Ijoibmlra292YWNldmljIiwiYSI6ImNrcDlwajBjaDBnbmEycmxsMDU5bHZtZWIifQ.7jC2o5D5GqDT7NCqCCkufQ"}
+                                            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
                                             mapStyle={"mapbox://styles/nikkovacevic/ckp9xo2vn1j0g17o7s9eealzm"}
                                             onViewportChange={viewport => {
                                                 setViewport(viewport);
@@ -156,7 +156,7 @@ export default function MapObcine() {
 
                                         <h3>Navodila</h3>
                                         <p>Povlečite drsnik ter po letih spremljajte spreminjanje indeksa oziroma deleža prebivalstva, ki dela v regiji, kjer živi.</p>
-
+                                        <ControlPanel year={year1} onChange={value => setYear(value)} />
                                         <img src={require('../img/slider.png').default} alt="slider" />
 
                                         <p style={{ textAlign: 'left' }}>⇧ Spreminjanje barve od najmanjšega do največjega indeksa.</p>

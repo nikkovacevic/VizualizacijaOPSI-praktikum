@@ -19,7 +19,7 @@ export default function Multigrafs() {
   return (
     <React.Fragment>
       <h3>Grafi indeksa delovnih migracij in števila migrantov</h3>
-     <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+     <Tabs defaultActiveKey="Regije" id="uncontrolled-tab-example">
   
   <Tab eventKey="Regije" title="Regije">
 
