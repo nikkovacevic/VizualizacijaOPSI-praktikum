@@ -5,20 +5,43 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
+import Image from 'react-bootstrap/Image'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import './css/styles.css';
 
 function Footer() {
   return (
+    <div className="div-footer">
 
-    <Box pt={4} >
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    </Box>
+      <Box pt={2} pb={2} bgcolor="text.secondary">
+        <Container fluid>
+          <Row>
+            <Col>
+              <Typography variant="body2" color="textSecondary" align="center">
+                {'Copyright © '}
+                <Link color="inherit" href="https://material-ui.com/">
+                  Vizualizacija-OPSI
+                </Link>{' '}
+                {new Date().getFullYear()}
+                {'.'}
+              </Typography>
+            </Col>
+          </Row>
+
+
+          <Row>
+            <Col>
+              <Image src={require('../img/logo-uni.png').default} rounded className="photo-feri" />
+              <Image src={require('../img/logo-feri.png').default} rounded className="photo-feri" />
+            </Col>
+          </Row>
+
+        </Container>
+      </Box>
+
+    </div>
   );
 }
 
