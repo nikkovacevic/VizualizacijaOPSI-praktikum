@@ -1,0 +1,25 @@
+Vizualizacija OPSI
+
+Grafični prikaz izbranih podatkov o delovnih migracijah iz OPSI-ja
+
+Leto izdelave: 2021
+
+Nik Kovačević
+Aljaž Neuberg
+Luka Ogrizek
+Timotej Vošinek
+
+Domača stran: https://url.si/
+Vir podatkov: https://podatki.gov.si/
+
+Koda: https://gitlab.com/neuberg/opsi.git
+
+Kategorizacija: spletna aplikacija
+
+Oznake: OdprtiPodatki, ReactJS, Python, Scrum, AgilenRazvoj, GitHub, REST.
+
+Opis projekta:
+Pri nalogi smo uporabili odprte podatke Slovenije ter se osredotočili na njihovo agregacijo in vizualizacijo.
+Omejiti smo se morali na področje mobilnosti (ljudi) - turizem, šolstvo, delo in podobno.
+Za našo nalogo smo se odločili za delovne migracije po vsej Sloveniji.
+Zeleli smo prikazati podrobno sliko migracij ljudi, kako se te spreminjajo po občinah in regijah skozi leta.
