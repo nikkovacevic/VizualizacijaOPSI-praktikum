@@ -11,8 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Paper from '@material-ui/core/Paper';
 import '../css/styles.css';
-import Slide from 'react-reveal/Slide';
-import Rotate from 'react-reveal/Rotate';
+
 
 //semafor
 import { updatePercentiles } from './racun_samoforja.js';
@@ -76,12 +75,9 @@ export default function MapObcineSamofor() {
         return allData && updatePercentiles(allData, f => f.properties.barvanje[year1]);
     }, [allData, year1]);
 
-    const layerStyle = {
-        id: 'data',
-        type: 'fill',
-    };
+  
 
-    const [color, ] = useState('#ffffff')
+    
 
     const [hoverInfo, setHoverInfo] = useState(null);
     

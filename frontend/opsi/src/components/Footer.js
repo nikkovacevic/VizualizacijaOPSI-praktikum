@@ -22,7 +22,7 @@ function Footer() {
             <div className="div-text">
               <Typography variant="body2" color="textSecondary" align="center">
                 {'Copyright © '}
-                <Link color="inherit" href="https://material-ui.com/">
+                <Link color="inherit" href="/">
                   Vizualizacija OPSI
                 </Link>{' '}
                 {new Date().getFullYear()}
@@ -35,8 +35,8 @@ function Footer() {
 
           <Row>
             <Col>
-              <Image src={require('../img/logo-uni.png').default} rounded className="photo-feri" />
-              <Image src={require('../img/logo-feri.png').default} rounded className="photo-feri" />
+             <a href="https://feri.um.si/" > <Image src={require('../img/logo-uni.png').default} rounded className="photo-feri" /></a>
+             <a href="https://feri.um.si/" > <Image src={require('../img/logo-feri.png').default} rounded className="photo-feri" /></a>
             </Col>
           </Row>
 

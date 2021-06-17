@@ -4,7 +4,6 @@ import Image from 'react-bootstrap/Image'
 import './css/styles.css';
 import Card from 'react-bootstrap/Card'
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -40,110 +39,111 @@ const About = () => {
           <h2>O nas</h2>
           <p>
             Smo študenti drugega letnika študijskega programa Informatika ter tehnologije komuniciranja na Fakulteti za elektrotehniko, računalništvo in informatiko Univerze v Mariboru.
+            Od spodaj so zapisane naše vloge in mnenja o projektu.
 
 
 
           </p>
         </div>
         <Card>
-          <Card.Header>  
-           <Row> 
-             <Col lg={0.5}>
-            <Avatar  alt="Nik Kovačević" src={require('../img/nik-pfp.jpg').default} className="avatarcek" /> 
+          <Card.Header>
+            <Row>
+              <Col lg={0.5}>
+                <Avatar alt="Nik Kovačević" src={require('../img/nik-pfp.jpg').default} className="avatarcek" />
 
-            </Col>
-            <Col>
-            <p className="p-cards">Nik Kovačević</p>
-            </Col>
+              </Col>
+              <Col>
+                <p className="p-cards">Nik Kovačević</p>
+              </Col>
             </Row>
           </Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                erat a ante.{' '}
+                  Dokler ni neznanih error-jev je React najboljši.
+                {' '}
               </p>
               <footer className="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
+                Razvijalec grafičnega vmesnika
               </footer>
             </blockquote>
           </Card.Body>
         </Card>
-        <br/>
+        <br />
         <Card>
           <Card.Header>
-          <Row> 
-             <Col lg={0.5}>
-            <Avatar  alt="Timotej Vošinek" src={require('../img/timi-pfp.jpg').default} className="avatarcek" /> 
+            <Row>
+              <Col lg={0.5}>
+                <Avatar alt="Timotej Vošinek" src={require('../img/timi-pfp.jpg').default} className="avatarcek" />
 
-            </Col>
-            <Col>
-            <p className="p-cards">Timotej Vošinek</p>
-            </Col>
+              </Col>
+              <Col>
+                <p className="p-cards">Timotej Vošinek</p>
+              </Col>
             </Row>
           </Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                erat a ante.{' '}
+                  Trenutno je "recharts" moja najljubša knjižnica za grafe.
+                {' '}
               </p>
               <footer className="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
+                Razvijalec prikazovanja podatkov in delo s podatki
               </footer>
             </blockquote>
           </Card.Body>
         </Card>
-        <br/>
+        <br />
         <Card>
           <Card.Header>
-          <Row> 
-             <Col lg={0.5}>
-            <Avatar  alt="Aljaž Neuberg" src={require('../img/aljaz-pfp.png').default} className="avatarcek" /> 
+            <Row>
+              <Col lg={0.5}>
+                <Avatar alt="Aljaž Neuberg" src={require('../img/aljaz-pfp.png').default} className="avatarcek" />
 
-            </Col>
-            <Col>
-            <p className="p-cards">Aljaž Neuberg</p>
-            </Col>
+              </Col>
+              <Col>
+                <p className="p-cards">Aljaž Neuberg</p>
+              </Col>
             </Row>
           </Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                erat a ante.{' '}
+                  Kljub veliki količini podatkov nisem izgubil živcev.
+                {' '}
               </p>
               <footer className="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
+                Razvijalec prikazovanja podatkov in delo s podatki
               </footer>
             </blockquote>
           </Card.Body>
         </Card>
-        <br/>
+        <br />
         <Card>
           <Card.Header>
-          <Row> 
-             <Col lg={0.5}>
-            <Avatar  alt="Luka Ogrizek" src={require('../img/luka-pfp.jpg').default} className="avatarcek" /> 
+            <Row>
+              <Col lg={0.5}>
+                <Avatar alt="Luka Ogrizek" src={require('../img/luka-pfp.jpg').default} className="avatarcek" />
 
-            </Col>
-            <Col>
-            <p className="p-cards">Luka Ogrizek</p>
-            </Col>
+              </Col>
+              <Col>
+                <p className="p-cards">Luka Ogrizek</p>
+              </Col>
             </Row>
           </Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                erat a ante.{' '}
+                  Zakaj nebi uporabljali Boostrap-a in Material.ui, če sta za to?
+                {' '}
               </p>
               <footer className="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
+                Razvijalec grafičnega vmesnika
               </footer>
             </blockquote>
           </Card.Body>
